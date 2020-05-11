@@ -1,68 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# DIALOGUE-FRONTEND-VENDOR
+Vendor Web administration & Dashboard
 
-## Available Scripts
+## How to install
++ Please install `Node` first
++ Run command `npm install` or `yarn` to genereate `/node_modules`
++ Website running with command `npm run start` or `yarn start` and you can check at `localhost:3000/`
 
-In the project directory, you can run:
+## Feature
++ [ ] Dashboard Vendor (Soon)
++ [ ] Management (Soon)
 
-### `yarn start`
+## Live
++ [ ] Production (Soon)
++ [ ] Staging (Soon)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Development Flow (staging)
+- checkout new feature branch for feature development, from master branch, example: ``f_johndoe_your_feature``
+- submit pull request from feature_branch ``f_johndoe_your_feature`` to staging
+- if conflict, checkout new mc branch from staging, example ``mc_stg_f_johndoe_your_feature``
+- pull from feature branch
+- submit pull request from ``mc_stg_f_johndoe_your_feature`` to staging branch
+ 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Development Flow (production)
+- checkout new feature branch for feature development, from master branch, example: ``f_johndoe_your_feature``
+- make sure you have submit your changes to staging
+- submit pull request from feature_branch ``f_johndoe_your_feature`` to master branch
+- if conflict, pull from master to your feature branch
+- submit pull request, from feature branch to staging 
+- after merged in staging, submit pull request to master
+- make sure you have done testing in staging, before submit PR to master 
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Branch naming convention
+- new feature : `f_yournickname_feateurename` 
+- bugfix : `b_yournickname_bugname`
+- improvement : `i_yournickname_improvement_name`
+- conflict staging : `mc_stg_yournickname_yourbranch`
