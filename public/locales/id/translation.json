@@ -1,0 +1,33 @@
+{   
+    "home": {
+        "see_all": "Lihat Semua",
+        "favorite": "Favorit",
+        "shop_by_brand": "Shop By Brand",
+        "recommendation": "Rekomendasi"
+    },
+    "header": {
+        "download_apps": "Unduh Aplikasi Dialogue",
+        "language": "Bahasa: ",
+        "category": "Kategori",
+        "signin": "Masuk",
+        "signup": "Daftar"
+    },
+    "footer": {
+        "customer_service": "Layanan Pelanggan",
+        "payment": "Pembayaran",
+        "delivery": "Pengiriman",
+        "order_status": "Status Pemesanan",
+        "product_return": "Pengembalian Produk",
+        "how_to_shop": "Cara Belanja",
+        "term_and_conditions": "Syarat & Ketentuan",
+        "privacy_policy": "Kebijakan Privasi",
+        "724hours": "7 x 24 Jam",
+        "about_us": "Tentang Kami",
+        "career": "Karir",
+        "buyer": "Pembeli",
+        "promotion": "Promo",
+        "seller": "Penjual",
+        "how_to_sell": "Cara Berjualan",
+        "selling_profit": "Keuntungan Jualan"
+    }
+}

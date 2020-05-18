@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react'
 function SvgLogoMain(props) {
   return (
     <svg width={179} height={45} fill="none" {...props}>
@@ -23,6 +23,6 @@ function SvgLogoMain(props) {
         />
       </defs>
     </svg>
-  );
+  )
 }
-export default SvgLogoMain;
+export default SvgLogoMain

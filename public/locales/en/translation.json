@@ -1,0 +1,33 @@
+{   
+    "home": {
+        "see_all": "See All",
+        "favorite": "Favorite",
+        "shop_by_brand": "Shop By Brand",
+        "recommendation": "Recommendation"
+    },
+    "header": {
+        "download_apps": "Download Apps Dialogue",
+        "language": "Languange: ",
+        "category": "Category",
+        "signin": "Signin",
+        "signup": "Signup"
+    },
+    "footer": {
+        "customer_service": "Customer Service",
+        "payment": "Payment",
+        "delivery": "Delivery",
+        "order_status": "Order Status",
+        "product_return": "Product Return",
+        "how_to_shop": "How To Shop",
+        "term_and_conditions": "Term & Conditions",
+        "privacy_policy": "Privacy Policy",
+        "724hours": "7 x 24 Hours",
+        "about_us": "About Us",
+        "career": "Career",
+        "buyer": "Buyer",
+        "promotion": "Promotion",
+        "seller": "Seller",
+        "how_to_sell": "How To Sell",
+        "selling_profit": "Selling Profit"
+    }
+}
