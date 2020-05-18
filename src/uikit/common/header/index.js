@@ -54,7 +54,7 @@ const RightBox = styled.div`
 `
 
 const ContainerHeaderBg = styled.div`
-  height: 160px;
+  height: 141px;
   @media (max-width: 425px) {
     height: 100px;
   }
