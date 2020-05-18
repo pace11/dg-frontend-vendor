@@ -66,7 +66,7 @@ steps:
         - docker rm dialoegue_vendor_web
         - docker rmi 45.32.110.149:5000/dialoegue_vendor_web
         - docker pull 45.32.110.149:5000/dialoegue_vendor_web:latest
-        - docker run -d --name dialoegue_vendor_web -p 45.32.110.149:5000 -v /etc/localtime:/etc/localtime:ro  45.32.110.149:5000/dialoegue_vendor_web
+        - docker run -d --name dialoegue_vendor_web -p 45.32.110.149:15000:5000 -v /etc/localtime:/etc/localtime:ro  45.32.110.149:5000/dialoegue_vendor_web
     when:
       branch:
         include:
