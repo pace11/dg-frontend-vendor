@@ -1,0 +1,120 @@
+---
+kind: pipeline
+type: docker
+name: frontend_deploy
+
+platform:
+  os: linux
+  arch: amd64
+
+volumes:
+  - name: dockersock
+    host:
+      path: /var/run/docker.sock
+  - name: whitelist
+    host:
+      path: /etc/docker/daemon.json
+  - name: consul-template
+    host:
+      path: /usr/bin/consul-template
+
+steps:
+  - name: build
+    pull: if-not-exists
+    image: node:13.6.0
+    commands:
+      - npm install
+      - npm run build
+    when:
+      branch:
+        include:
+          - staging
+
+  - name: deploy
+    pull: if-not-exists
+    image: docker
+    volumes:
+      - name: whitelist
+        path: /etc/docker/daemon.json
+      - name: dockersock
+        path: /var/run/docker.sock
+      - name: consul-template
+        path: /usr/bin/consul-template
+    commands:
+      - consul-template -consul-addr="consul.ujunglangit.id:8500" -template="config/consul/config.ctmpl:config/out.env" -log-level debug  -once
+      - docker build -t dialoegue_vendor_web .
+      - docker tag dialoegue_vendor_web 45.32.110.149:5000/dialoegue_vendor_web:latest
+      - docker push 45.32.110.149:5000/dialoegue_vendor_web:latest
+    when:
+      branch:
+        include:
+          - staging
+
+  - name: reload
+    pull: if-not-exists
+    image: appleboy/drone-ssh
+    settings:
+      host:
+        from_secret: host
+      username:
+        from_secret: uname
+      password:
+        from_secret: deploypass
+      port: 22
+      script:
+        - docker stop dialoegue_vendor_web
+        - docker rm dialoegue_vendor_web
+        - docker rmi 45.32.110.149:5000/dialoegue_vendor_web
+        - docker pull 45.32.110.149:5000/dialoegue_vendor_web:latest
+        - docker run -d --name dialoegue_vendor_web -p 45.32.110.149:15000:5000 -v /etc/localtime:/etc/localtime:ro  45.32.110.149:5000/dialoegue_vendor_web
+    when:
+      branch:
+        include:
+          - staging
+
+  - name: notify
+    pull: if-not-exists
+    image: appleboy/drone-telegram
+    when:
+      status: [ success, failure ]
+      branch:
+        include:
+          - staging
+    settings:
+      token:
+        from_secret: tele_token
+      to:
+        from_secret: tele_chat_id
+      format: markdown
+      message: >
+        {{#success build.status}}
+        ✅ Build #{{build.number}} of `{{repo.name}}` succeeded.
+
+
+        📝 Commit by {{commit.author}} on
+
+
+        `{{commit.branch}}`:
+
+
+        ```
+        {{commit.message}}
+        ```
+
+        🌐 {{ build.link }}
+        {{else}}
+        ❌ Build #{{build.number}} of `{{repo.name}}` failed.
+
+
+
+        📝 Commit by {{commit.author}} on
+
+
+        `{{commit.branch}}`:
+
+        ```
+        {{commit.message}}
+        ```
+
+        🌐 {{ build.link }}
+        {{/success}}

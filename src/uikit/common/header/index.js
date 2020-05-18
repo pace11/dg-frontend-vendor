@@ -84,7 +84,9 @@ const ImgDiv = styled.div`
   width: 50px;
   min-height: 50px;
   border-radius: 50%;
-  background: ${theme.colors.gray5};
+  background-image: url('https://res.cloudinary.com/code5/image/upload/v1589793836/dialogue/no-account_ks5tkz.png');
+  background-size: contain;
+  background-color: ${theme.colors.gray5};
   margin: 0 10px 0 0;
 `
 
