@@ -25,6 +25,10 @@ steps:
     commands:
       - npm install
       - npm run build
+    when:
+      branch:
+        include:
+          - staging
 
   - name: deploy
     pull: if-not-exists
@@ -41,6 +45,10 @@ steps:
       - docker build -t dialoegue_vendor_web .
       - docker tag dialoegue_vendor_web 45.32.110.149:5000/dialoegue_vendor_web:latest
       - docker push 45.32.110.149:5000/dialoegue_vendor_web:latest
+    when:
+      branch:
+        include:
+          - staging
 
   - name: reload
     pull: if-not-exists
@@ -59,3 +67,54 @@ steps:
         - docker rmi 45.32.110.149:5000/dialoegue_vendor_web
         - docker pull 45.32.110.149:5000/dialoegue_vendor_web:latest
         - docker run -d --name dialoegue_vendor_web -p 45.32.110.149:15000:5000 -v /etc/localtime:/etc/localtime:ro  45.32.110.149:5000/dialoegue_vendor_web
+    when:
+      branch:
+        include:
+          - staging
+
+  - name: notify
+    pull: if-not-exists
+    image: appleboy/drone-telegram
+    when:
+      status: [ success, failure ]
+      branch:
+        include:
+          - staging
+    settings:
+      token:
+        from_secret: tele_token
+      to:
+        from_secret: tele_chat_id
+      format: markdown
+      message: >
+        {{#success build.status}}
+        ✅ Build #{{build.number}} of `{{repo.name}}` succeeded.
+
+
+        📝 Commit by {{commit.author}} on
+
+
+        `{{commit.branch}}`:
+
+
+        ```
+        {{commit.message}}
+        ```
+
+        🌐 {{ build.link }}
+        {{else}}
+        ❌ Build #{{build.number}} of `{{repo.name}}` failed.
+
+
+
+        📝 Commit by {{commit.author}} on
+
+
+        `{{commit.branch}}`:
+
+        ```
+        {{commit.message}}
+        ```
+
+        🌐 {{ build.link }}
+        {{/success}}
