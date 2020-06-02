@@ -8,10 +8,11 @@ import NotificationIcon from '../../../assets/icons/Notification'
 
 const ContainerHeader = styled.div`
   position: fixed;
-  width: 100%;
-  height: auto;
-  padding: 0;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 18vh;
   z-index: ${theme.zIndex.header};
   background: ${theme.colors.white};
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
@@ -19,7 +20,7 @@ const ContainerHeader = styled.div`
 
 const HeaderTop = styled.div`
   display: flex;
-  height: 41px;
+  height: 40px;
   justify-content: space-between;
   align-items: center;
   background-color: ${theme.colors.white2};
@@ -50,13 +51,6 @@ const RightBox = styled.div`
   span {
     font-size: 12px;
     color: ${theme.colors.gray2};
-  }
-`
-
-const ContainerHeaderBg = styled.div`
-  height: 141px;
-  @media (max-width: 425px) {
-    height: 100px;
   }
 `
 
@@ -114,43 +108,40 @@ const ColUser = styled.div`
 export default function Header({ HandleChangeLanguage }) {
   const { t } = useTranslation()
   return (
-    <React.Fragment>
-      <ContainerHeader>
-        <HeaderTop>
-          <LeftBox>
-            <p>
-              <span>
-                <DownloadAppsIcon />
-              </span>
-              {t('header.download_apps')}
-            </p>
-          </LeftBox>
-          <RightBox>
-            <span>{t('header.language')}</span>
-            <select
-              onChange={(e) => HandleChangeLanguage(e.target.value)}
-            >
-              <option value="id">Indonesia</option>
-              <option value="en">English</option>
-            </select>
-          </RightBox>
-        </HeaderTop>
-        <HeaderMenu>
-          <LogoBox>
-            <LogoMain />
-          </LogoBox>
-          <UserBox>
-            <ColNotif>
-              <NotificationIcon />
-            </ColNotif>
-            <ColUser>
-              <ImgDiv />
-              <span>Nama Brand</span>
-            </ColUser>
-          </UserBox>
-        </HeaderMenu>
-      </ContainerHeader>
-      <ContainerHeaderBg />
-    </React.Fragment>
+    <ContainerHeader>
+      <HeaderTop>
+        <LeftBox>
+          <p>
+            <span>
+              <DownloadAppsIcon />
+            </span>
+            {t('header.download_apps')}
+          </p>
+        </LeftBox>
+        <RightBox>
+          <span>{t('header.language')}</span>
+          <select
+            onChange={(e) => HandleChangeLanguage(e.target.value)}
+          >
+            <option value="id">Indonesia</option>
+            <option value="en">English</option>
+          </select>
+        </RightBox>
+      </HeaderTop>
+      <HeaderMenu>
+        <LogoBox>
+          <LogoMain />
+        </LogoBox>
+        <UserBox>
+          <ColNotif>
+            <NotificationIcon />
+          </ColNotif>
+          <ColUser>
+            <ImgDiv />
+            <span>Nama Brand</span>
+          </ColUser>
+        </UserBox>
+      </HeaderMenu>
+    </ContainerHeader>
   )
 }
