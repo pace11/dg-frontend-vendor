@@ -7,8 +7,7 @@ import theme from '../../common/theme'
 const ContainerSidebar = styled.div`
   padding: 20px 10px 0 10px;
   width: 100%;
-  min-height: 100%;
-  background: #ffffff;
+  background: #fff;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
 `
@@ -34,6 +33,14 @@ const WalletInformation = styled.div`
   }
 `
 
+const MenuInformation = styled.div`
+  padding: 10px 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 44vh;
+  white-space: nowrap;
+`
+
 const ImageCircle = styled.div`
   width: 100px;
   min-height: 100px;
@@ -49,7 +56,7 @@ const TitleBrand = styled.p`
   font-size: 14px;
 `
 
-export default function SidebarMenu() {
+export default function SidebarMenu({ children }) {
   return (
     <ContainerSidebar>
       <AccountInformation>
@@ -61,6 +68,7 @@ export default function SidebarMenu() {
         <p>Saldo Youpay</p>
         <Price>500000000</Price>
       </WalletInformation>
+      <MenuInformation>{children}</MenuInformation>
     </ContainerSidebar>
   )
 }
