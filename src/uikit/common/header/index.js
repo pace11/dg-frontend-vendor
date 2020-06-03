@@ -20,7 +20,7 @@ const ContainerHeader = styled.div`
 
 const HeaderTop = styled.div`
   display: flex;
-  height: 40px;
+  height: 5vh;
   justify-content: space-between;
   align-items: center;
   background-color: ${theme.colors.white2};
@@ -31,7 +31,7 @@ const HeaderTop = styled.div`
 
 const LeftBox = styled.div`
   display: flex;
-  width: 200px;
+  width: auto;
   margin: 0 0 0 15px;
   p {
     display: flex;
@@ -46,8 +46,8 @@ const LeftBox = styled.div`
 `
 
 const RightBox = styled.div`
-  width: 160px;
-  margin: 0;
+  width: auto;
+  margin: 0 10px 0 0;
   span {
     font-size: 12px;
     color: ${theme.colors.gray2};
@@ -57,7 +57,8 @@ const RightBox = styled.div`
 const HeaderMenu = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 100px;
+  height: 13vh;
+  align-items: center;
   padding: 0 30px;
 `
 

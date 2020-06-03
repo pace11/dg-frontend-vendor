@@ -7,6 +7,7 @@ import theme from '../../common/theme'
 const ContainerSidebar = styled.div`
   padding: 20px 10px 0 10px;
   width: 100%;
+  height: 82vh;
   background: #fff;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
@@ -19,26 +20,32 @@ const AccountInformation = styled.div`
   flex-direction: column;
   padding: 0 0 20px 0;
   border-bottom: 1px solid ${theme.colors.gray5};
+  height: 25vh;
 `
 
 const WalletInformation = styled.div`
-  padding: 10px 0;
+  display: flex;
+  height: 10vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   border-bottom: 1px solid ${theme.colors.gray5};
-  p {
-    margin: 0;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 300;
-    color: ${theme.colors.black};
+  div {
+    p {
+      margin: 0;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 300;
+      color: ${theme.colors.black};
+    }
   }
 `
 
 const MenuInformation = styled.div`
-  padding: 10px 0;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  height: 44vh;
+  overflow: auto;
+  height: 40vh;
   white-space: nowrap;
+  position: relative;
 `
 
 const ImageCircle = styled.div`
@@ -65,8 +72,10 @@ export default function SidebarMenu({ children }) {
         <StoreName verified> Nama Brand</StoreName>
       </AccountInformation>
       <WalletInformation>
-        <p>Saldo Youpay</p>
-        <Price>500000000</Price>
+        <div>
+          <p>Saldo Youpay</p>
+          <Price>500000000</Price>
+        </div>
       </WalletInformation>
       <MenuInformation>{children}</MenuInformation>
     </ContainerSidebar>
