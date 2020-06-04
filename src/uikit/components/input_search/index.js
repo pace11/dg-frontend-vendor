@@ -39,9 +39,9 @@ const RightIcon = styled.div`
   align-items: center;
   justify-content: center;
   height: 25px;
-  width: 50px;
+  width: 40px;
   border-left: 1px solid black;
-  right: 10px;
+  right: 5px;
   top: 8px;
   cursor: pointer;
   @media (max-width: 425px) {
