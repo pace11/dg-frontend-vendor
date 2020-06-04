@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import Header from '../header'
 import SidebarMenu from '../sidebar-menu'
@@ -28,12 +28,23 @@ const Content = styled.div`
   grid-template-columns: 17% 83%;
 `
 
+const AnimateZoom = keyframes`
+  from {
+    transform: scale(0.1);
+  }
+  to {
+    transform: scale(1);
+  }
+`
+
 const CenterContent = styled.div`
   width: 100%;
   padding: 25px 25px 10px 25px;
   box-sizing: border-box;
   overflow-y: scroll;
   white-space: nowrap;
+  animation-name: ${AnimateZoom};
+  animation-duration: 0.4s;
 `
 
 export default function Layout({ children }) {
