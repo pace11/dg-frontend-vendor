@@ -82,7 +82,7 @@ export default function Layout({ children }) {
             text="Produk Dijual"
             data={[
               { text: 'Tambah Produk', linkTo: '/product/add' },
-              { text: 'Daftar Produk Dijual', linkTo: '/product' },
+              { text: 'Daftar Produk', linkTo: '/product' },
             ]}
           />
           <ListMenu

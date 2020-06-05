@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../../uikit/common/layout'
+import Layout from '../../../uikit/common/layout'
 
 export default function AddProduct() {
   return (
