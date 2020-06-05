@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import InputRadio from '../../uikit/components/selected_button'
 import InputSearch from '../../uikit/components/input_search'
 import Button from '../../uikit/components/button'
+import DownloadReport from '../../assets/icons/DownloadReport'
 
 const ContainerMenu = styled.div`
   background: #ffffff;
@@ -71,6 +72,7 @@ export default function MenuHeader({ isMenu, HandleChangeMenu }) {
           01 Mei 2020 - 01 Juni 2020
         </Button>
         <Button block variant="secondary-outline">
+          <DownloadReport />
           Unduh Laporan Penjualan
         </Button>
       </RowBottom>
