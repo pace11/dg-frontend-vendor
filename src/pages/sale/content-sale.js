@@ -36,84 +36,37 @@ const RowContent = styled.div`
 export default function MenuHeader({ menu }) {
   return (
     <ContainerMenu>
+      <RowTitle>
+        <div>Produk</div>
+        <div>Pengiriman</div>
+        <div>Total Harga</div>
+        <div>Status</div>
+        <div>Aksi</div>
+      </RowTitle>
       {menu === 'all_order' ? (
-        <React.Fragment>
-          <RowTitle>
-            <div>Produk</div>
-            <div>Catatan</div>
-            <div>Jumlah</div>
-            <div>Harga</div>
-            <div>Aksi</div>
-          </RowTitle>
-          <RowContent>
-            <p>Belum Ada Pesanan</p>
-          </RowContent>
-        </React.Fragment>
+        <RowContent>
+          <p>Belum Ada Pesanan</p>
+        </RowContent>
       ) : menu === 'new_order' ? (
-        <React.Fragment>
-          <RowTitle>
-            <div>Produk</div>
-            <div>Catatan</div>
-            <div>Jumlah</div>
-            <div>Harga</div>
-            <div>Aksi</div>
-          </RowTitle>
-          <RowContent>
-            <p>Produk Baru Belum Ada</p>
-          </RowContent>
-        </React.Fragment>
+        <RowContent>
+          <p>Produk Baru Belum Ada</p>
+        </RowContent>
       ) : menu === 'need_to_be_sent' ? (
-        <React.Fragment>
-          <RowTitle>
-            <div>Produk</div>
-            <div>Catatan</div>
-            <div>Jumlah</div>
-            <div>Harga</div>
-            <div>Aksi</div>
-          </RowTitle>
-          <RowContent>
-            <p>Pesanan Perlu Dikirim Belum Ada</p>
-          </RowContent>
-        </React.Fragment>
+        <RowContent>
+          <p>Pesanan Perlu Dikirim Belum Ada</p>
+        </RowContent>
       ) : menu === 'in_shipping' ? (
-        <React.Fragment>
-          <RowTitle>
-            <div>Produk</div>
-            <div>Catatan</div>
-            <div>Jumlah</div>
-            <div>Harga</div>
-            <div>Aksi</div>
-          </RowTitle>
-          <RowContent>
-            <p>Pesanan Dalam Pengiriman Belum Ada</p>
-          </RowContent>
-        </React.Fragment>
+        <RowContent>
+          <p>Pesanan Dalam Pengiriman Belum Ada</p>
+        </RowContent>
       ) : menu === 'order_completed' ? (
-        <React.Fragment>
-          <RowTitle>
-            <div>Produk</div>
-            <div>Catatan</div>
-            <div>Jumlah</div>
-            <div>Harga</div>
-            <div>Aksi</div>
-          </RowTitle>
-          <RowContent>
-            <p>Pesanan Selesai Belum Ada</p>
-          </RowContent>
-        </React.Fragment>
+        <RowContent>
+          <p>Pesanan Selesai Belum Ada</p>
+        </RowContent>
       ) : (
-        <React.Fragment>
-          <RowTitle>
-            <div>Produk</div>
-            <div>Catatan</div>
-            <div>Jumlah</div>
-            <div>Harga</div>
-            <div>Aksi</div>
-          </RowTitle>
-          <RowContent>
-            <p>Pesanan Dibatalkan Belum Ada</p>
-          </RowContent>
-        </React.Fragment>
+        <RowContent>
+          <p>Pesanan Dibatalkan Belum Ada</p>
+        </RowContent>
       )}
     </ContainerMenu>
   )

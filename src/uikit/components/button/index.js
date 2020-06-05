@@ -73,6 +73,9 @@ const Container = styled.div`
 `
 
 const StyledButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   border-radius: 10px;
   border: 0;
@@ -85,6 +88,9 @@ const StyledButton = styled.button`
   letter-spacing: 1.33px;
   :active {
     opacity: 0.7;
+  }
+  svg {
+    margin-right: 10px;
   }
 `
 
