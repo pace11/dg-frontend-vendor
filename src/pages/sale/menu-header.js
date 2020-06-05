@@ -21,8 +21,8 @@ const RowTop = styled.div`
 const RowBottom = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: 50% 25% 25%;
-  grid-gap: 5px;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-gap: 10px;
 `
 
 export default function MenuHeader({ isMenu, HandleChangeMenu }) {
