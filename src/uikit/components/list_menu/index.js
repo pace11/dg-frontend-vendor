@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import theme from '../../common/theme'
@@ -8,40 +8,42 @@ const Container = styled.div`
   padding: 5px 0;
 `
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  font-size: 14px;
-  font-style: normal;
-  color: ${theme.colors.black};
-`
-
-const RowText = styled.div`
-  display: flex;
-  justify-content: space-between;
-  span {
-    color: ${(props) =>
-      props.to === props.linkActive
-        ? theme.colors.orange
-        : theme.colors.black};
-  }
-  padding: ${(props) => (props.padding ? props.padding : '0px')};
-  div {
+const RowParent = styled.div`
+  a {
+    text-decoration: none;
+    font-size: 14px;
+    font-style: normal;
+    color: ${theme.colors.black};
     display: flex;
-    span:first-child {
-      width: 40px;
-      svg {
-        transform: scale(0.9);
-        fill: ${(props) =>
-          props.to === props.linkActive || props.linkchild > 0
+    justify-content: space-between;
+    div {
+      span {
+        color: ${(props) =>
+          props.to === props.linkActive
             ? theme.colors.orange
-            : theme.colors.black} !important;
+            : theme.colors.black};
       }
     }
-    span:not(:first-child) {
-      color: ${(props) =>
-        props.to === props.linkActive || props.linkchild > 0
-          ? theme.colors.orange
-          : theme.colors.black};
+
+    padding: ${(props) => (props.padding ? props.padding : '0px')};
+    div {
+      display: flex;
+      span:first-child {
+        width: 40px;
+        svg {
+          transform: scale(0.9);
+          fill: ${(props) =>
+            props.to === props.linkActive || props.linkchild > 0
+              ? theme.colors.orange
+              : theme.colors.black} !important;
+        }
+      }
+      span:not(:first-child) {
+        color: ${(props) =>
+          props.to === props.linkActive || props.linkchild > 0
+            ? theme.colors.orange
+            : theme.colors.black};
+      }
     }
   }
 `
@@ -60,15 +62,38 @@ const Notification = styled.div`
   font-size: 10px;
 `
 
-const RowMenu = styled.div`
-  padding: 0 0 0 40px;
+const RowChild = styled.div`
+  padding: 0 0 5px 40px;
+  a {
+    text-decoration: none;
+    font-size: 14px;
+    font-style: normal;
+    color: ${(props) =>
+      props.to === props.linkActive
+        ? theme.colors.orange
+        : theme.colors.black};
+  }
 `
 
-const ArrowIcon = styled(Arrow)`
-  margin-top: 5px;
+const WrapperArrowIcon = styled.span`
+  svg {
+    margin-top: 5px;
+    transform: ${(props) =>
+      props.show ? 'rotate(180deg)' : 'rotate(0deg)'};
+  }
 `
 
+/**
+ *
+ * @param {String} props.elementId
+ * @param {String} props.icon
+ * @param {String} Props.text
+ * @param {String} props.linkTo
+ * @param {String} props.notification
+ * @param {Object <Array>} props.data
+ */
 export default function ListMenu({
+  elementId,
   icon,
   text,
   linkTo,
@@ -76,42 +101,61 @@ export default function ListMenu({
   data,
 }) {
   const location = useLocation()
+  const [show, setShow] = useState(false)
+
+  useEffect(() => {
+    if (
+      data !== undefined &&
+      data.filter((item) => item.linkTo === location.pathname).length
+    ) {
+      setShow((show) => !show)
+    }
+  }, [])
 
   return (
-    <Container>
-      <StyledLink to={linkTo}>
-        <RowText
-          to={linkTo}
-          linkActive={location.pathname}
-          linkchild={
-            data &&
-            data.filter((item) => item.linkTo === location.pathname)
-              .length
-          }
-        >
+    <Container id={elementId}>
+      <RowParent
+        linkActive={location.pathname}
+        linkchild={
+          data &&
+          data.filter((item) => item.linkTo === location.pathname)
+            .length
+        }
+        onClick={
+          data && data.length > 0 ? () => setShow(!show) : false
+        }
+        to={`${linkTo}`}
+      >
+        <Link to={linkTo ? `${linkTo}` : `#`}>
           <div>
             <span>{icon}</span>
             <span>{text}</span>
           </div>
-          {notification > 0 && <Notification>10</Notification>}
-          {data && data.length > 0 && <ArrowIcon />}
-        </RowText>
-      </StyledLink>
-      {data && data.length > 0 && (
-        <RowMenu>
+          {notification > 0 && (
+            <Notification>{notification}</Notification>
+          )}
+          {data && data.length > 0 && (
+            <WrapperArrowIcon show={show}>
+              <Arrow />
+            </WrapperArrowIcon>
+          )}
+        </Link>
+      </RowParent>
+      {show && (
+        <React.Fragment>
           {data &&
             data.map((item, i) => (
-              <StyledLink key={String(i)} to={item.linkTo}>
-                <RowText
-                  padding="10px 0"
-                  to={item.linkTo}
-                  linkActive={location.pathname}
-                >
-                  <span>{item.text}</span>
-                </RowText>
-              </StyledLink>
+              <RowChild
+                key={String(i)}
+                to={item.linkTo}
+                linkActive={location.pathname}
+              >
+                <Link to={`${item.linkTo}`}>
+                  <div>{item.text}</div>
+                </Link>
+              </RowChild>
             ))}
-        </RowMenu>
+        </React.Fragment>
       )}
     </Container>
   )
