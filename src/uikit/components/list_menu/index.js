@@ -103,14 +103,17 @@ export default function ListMenu({
   const location = useLocation()
   const [show, setShow] = useState(false)
 
-  useEffect(() => {
-    if (
-      data !== undefined &&
-      data.filter((item) => item.linkTo === location.pathname).length
-    ) {
-      setShow((show) => !show)
-    }
-  }, [])
+  useEffect(
+    (data, location) => {
+      if (
+        data !== undefined &&
+        data.filter((item) => item.linkTo === location.pathname)
+          .length
+      )
+        setShow((show) => !show)
+    },
+    [show],
+  )
 
   return (
     <Container id={elementId}>
@@ -122,7 +125,7 @@ export default function ListMenu({
             .length
         }
         onClick={
-          data && data.length > 0 ? () => setShow(!show) : false
+          data && data.length > 0 ? () => setShow(!show) : null
         }
         to={`${linkTo}`}
       >
