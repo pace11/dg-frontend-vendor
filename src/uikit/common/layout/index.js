@@ -42,6 +42,7 @@ const CenterContent = styled.div`
   padding: 25px 25px 10px 25px;
   box-sizing: border-box;
   overflow-y: scroll;
+  overflow-x: hidden;
   white-space: nowrap;
   animation-name: ${AnimateZoom};
   animation-duration: 0.4s;
@@ -60,24 +61,28 @@ export default function Layout({ children }) {
       <Content>
         <SidebarMenu>
           <ListMenu
+            elementId=""
             icon={<Home />}
             text="Home"
             linkTo="/"
             notification={0}
           />
           <ListMenu
+            elementId=""
             icon={<Chat />}
             text="Chat"
             linkTo="/chat"
             notification={8}
           />
           <ListMenu
+            elementId=""
             icon={<Sale />}
             text="Penjualan"
             linkTo="/sale"
             notification={0}
           />
           <ListMenu
+            elementId=""
             icon={<ProductNote />}
             text="Produk Dijual"
             data={[
@@ -86,6 +91,7 @@ export default function Layout({ children }) {
             ]}
           />
           <ListMenu
+            elementId=""
             icon={<Ad />}
             text="Iklan & Promosi"
             data={[
@@ -94,30 +100,35 @@ export default function Layout({ children }) {
             ]}
           />
           <ListMenu
+            elementId=""
             icon={<StoreDisplay />}
             text="Tampilan Toko"
             linkTo="/store/display"
             notification={0}
           />
           <ListMenu
+            elementId=""
             icon={<Statistic />}
             text="Data Statistik"
             linkTo="/statistic"
             notification={0}
           />
           <ListMenu
+            elementId=""
             icon={<Review />}
             text="Ulasan Pembeli"
             linkTo="/review"
             notification={0}
           />
           <ListMenu
+            elementId="cs"
             icon={<CustomerCare />}
             text="Customer Care"
             linkTo="/customer"
             notification={0}
           />
           <ListMenu
+            elementId=""
             icon={<Setting />}
             text="Pengaturan"
             notification={0}
