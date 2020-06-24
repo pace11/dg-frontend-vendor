@@ -42,6 +42,7 @@ const CenterContent = styled.div`
   padding: 25px 25px 10px 25px;
   box-sizing: border-box;
   overflow-y: scroll;
+  overflow-x: hidden;
   white-space: nowrap;
   animation-name: ${AnimateZoom};
   animation-duration: 0.4s;
