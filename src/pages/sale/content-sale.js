@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import theme from '../../uikit/common/theme'
+import ListContentSale from './list-content-sale'
 
 const ContainerMenu = styled.div`
   background: #ffffff;
@@ -16,7 +17,7 @@ const RowTitle = styled.div`
   padding: 0 10px;
   display: grid;
   height: 52px;
-  grid-template-columns: 40% 20% 15% 15% 10%;
+  grid-template-columns: 35% 25% 15% 25%;
   font-size: 14px;
   div {
     display: flex;
@@ -27,25 +28,28 @@ const RowTitle = styled.div`
 `
 
 const RowContent = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: ${theme.colors.red};
+  display: grid;
+  grid-template-columns: 1fr;
+  height: auto;
 `
 
-export default function MenuHeader({ menu }) {
+export default function ContentSale({
+  menu,
+  handleModal,
+}) {
   return (
     <ContainerMenu>
       <RowTitle>
         <div>Produk</div>
         <div>Pengiriman</div>
+        <div>Jasa Pengiriman</div>
         <div>Total Harga</div>
-        <div>Status</div>
-        <div>Aksi</div>
       </RowTitle>
       {menu === 'all_order' ? (
         <RowContent>
-          <p>Belum Ada Pesanan</p>
+          <ListContentSale
+            handleModal={handleModal}
+          />
         </RowContent>
       ) : menu === 'new_order' ? (
         <RowContent>

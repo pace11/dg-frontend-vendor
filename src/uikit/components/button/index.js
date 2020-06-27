@@ -17,6 +17,12 @@ const VariantButton = {
   },
   btnPrimaryOutline: {
     background: 'transparent',
+    color: theme.colors.red,
+    border: `1px solid ${theme.colors.red}`,
+    cursor: 'pointer',
+  },
+  btnPrimaryOrangeOutline: {
+    background: 'transparent',
     color: theme.colors.orange2,
     border: `1px solid ${theme.colors.orange2}`,
     cursor: 'pointer',
@@ -49,6 +55,8 @@ const HandlingVariantButton = (e) => {
       return VariantButton.btnSecondaryOutline
     case 'primary-orange':
       return VariantButton.btnPrimaryOrange
+    case 'primary-orange-outline':
+      return VariantButton.btnPrimaryOrangeOutline
     case 'primary-outline':
       return VariantButton.btnPrimaryOutline
     case 'disabled':
@@ -80,7 +88,10 @@ const StyledButton = styled.button`
   border-radius: 10px;
   border: 0;
   ${(props) => (props.block ? `width: 100%;` : `padding: 0 15px;`)}
-  ${(props) => HandlingVariantButton(props.variant)}
+  ${(props) =>
+    HandlingVariantButton(
+      props.disabled ? 'disabled' : props.variant,
+    )}
   outline: none;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
@@ -94,14 +105,24 @@ const StyledButton = styled.button`
   }
 `
 
-function Button({ children, variant, size, block }) {
+export default function Button({
+  children,
+  variant,
+  size,
+  block,
+  onClick,
+  disabled,
+}) {
   return (
     <Container size={size}>
-      <StyledButton block={block} variant={variant}>
+      <StyledButton
+        block={block}
+        variant={variant}
+        onClick={onClick}
+        disabled={disabled}
+      >
         {children}
       </StyledButton>
     </Container>
   )
 }
-
-export default Button

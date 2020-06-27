@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useStoreDispatch } from 'easy-peasy'
 import styled from 'styled-components'
 import Layout from '../../uikit/common/layout'
 import MenuHeader from './menu-header'
@@ -14,10 +15,15 @@ const TitlePage = styled.p`
 `
 
 export default function Sale() {
+  const dispatch = useStoreDispatch()
   const [isMenu, setIsMenu] = useState('all_order')
 
   const HandleChangeMenu = (e) => {
     setIsMenu(e)
+  }
+
+  const HandleModal = (e) => {
+    dispatch.ModalGlobal.setModalGlobal({ name: e, show: true })
   }
 
   return (
@@ -27,7 +33,7 @@ export default function Sale() {
         HandleChangeMenu={HandleChangeMenu}
         isMenu={isMenu}
       />
-      <ContentSale menu={isMenu} />
+      <ContentSale menu={isMenu} handleModal={HandleModal} />
     </Layout>
   )
 }
