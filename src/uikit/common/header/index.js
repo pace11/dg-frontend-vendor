@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
-import theme from '../../common/theme'
+import Theme from '../../common/theme'
 import DownloadAppsIcon from '../../../assets/icons/DownloadApps'
 import LogoMain from '../../../assets/icons/LogoMain'
 import NotificationIcon from '../../../assets/icons/Notification'
@@ -13,8 +13,8 @@ const ContainerHeader = styled.div`
   right: 0;
   width: 100%;
   height: 18vh;
-  z-index: ${theme.zIndex.header};
-  background: ${theme.colors.white};
+  z-index: ${Theme.zIndex.header};
+  background: ${Theme.colors.white};
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
 `
 
@@ -23,7 +23,7 @@ const HeaderTop = styled.div`
   height: 5vh;
   justify-content: space-between;
   align-items: center;
-  background-color: ${theme.colors.white2};
+  background-color: ${Theme.colors.white2};
   @media (max-width: 425px) {
     display: none;
   }
@@ -37,7 +37,7 @@ const LeftBox = styled.div`
     display: flex;
     align-items: center;
     font-size: 12px;
-    color: ${theme.colors.gray2};
+    color: ${Theme.colors.gray2};
     margin-bottom: 10px;
     span {
       margin: 0 10px 0 0;
@@ -50,7 +50,7 @@ const RightBox = styled.div`
   margin: 0 10px 0 0;
   span {
     font-size: 12px;
-    color: ${theme.colors.gray2};
+    color: ${Theme.colors.gray2};
   }
 `
 
@@ -81,7 +81,7 @@ const ImgDiv = styled.div`
   border-radius: 50%;
   background-image: url('https://res.cloudinary.com/code5/image/upload/v1589793836/dialogue/no-account_ks5tkz.png');
   background-size: contain;
-  background-color: ${theme.colors.gray5};
+  background-color: ${Theme.colors.gray5};
   margin: 0 10px 0 0;
 `
 
@@ -95,7 +95,7 @@ const ColUser = styled.div`
   display: flex;
   align-items: center;
   padding: 0 20px;
-  border-left: 1px solid ${theme.colors.gray5};
+  border-left: 1px solid ${Theme.colors.gray5};
 `
 
 /**

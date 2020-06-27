@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import theme from '../../common/theme'
 
-const ContainerRadio = styled.div`
+const Container = styled.div`
   display: inline-block;
   width: auto;
   height: 41px;
@@ -32,16 +32,19 @@ const ContainerRadio = styled.div`
   }
 `
 
-function TypeA({ text, value, isSelected, onClick }) {
+export default function SelectedButton({
+  text,
+  value,
+  isSelected,
+  onClick,
+}) {
   return (
-    <ContainerRadio
+    <Container
       isSelected={isSelected === value ? true : false}
       data-value={value}
       onClick={onClick}
     >
       <div>{text}</div>
-    </ContainerRadio>
+    </Container>
   )
 }
-
-export default TypeA

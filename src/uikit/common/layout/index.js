@@ -1,4 +1,5 @@
 import React from 'react'
+import { useStoreDispatch, useStoreState } from 'easy-peasy'
 import styled, { keyframes } from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import Header from '../header'
@@ -16,6 +17,10 @@ import {
   CustomerCare,
   Setting,
 } from '../../../assets/icons'
+import Modal from '../../common/modal'
+import ContentModalStatusOrder from '../content-modal/modal-status-order'
+import ContentModalRejectOrder from '../content-modal/modal-reject-order'
+import ContentModalAcceptOrder from '../content-modal/modal-accept-order'
 
 const Content = styled.div`
   position: fixed;
@@ -26,6 +31,7 @@ const Content = styled.div`
   width: 100%;
   height: 82vh;
   grid-template-columns: 17% 83%;
+  z-index: 1;
 `
 
 const AnimateZoom = keyframes`
@@ -49,10 +55,48 @@ const CenterContent = styled.div`
 `
 
 export default function Layout({ children }) {
+  const dispatch = useStoreDispatch()
+  const data_step = [
+    {
+      id: 1,
+      title: 'Transaksi selesai',
+      date: '27 Jun 2020, 15:03 WIB',
+    },
+    {
+      id: 2,
+      title: 'Paket telah diterima pembeli',
+      date: '27 Jun 2020, 15:03 WIB',
+    },
+    {
+      id: 3,
+      title: 'Pengiriman',
+      date: '27 Jun 2020, 15:03 WIB',
+    },
+    {
+      id: 4,
+      title: 'Paket telah kamu proses',
+      date: '27 Jun 2020, 15:03 WIB',
+    },
+    {
+      id: 5,
+      title: 'Paket telah kamu proses',
+      date: '27 Jun 2020, 15:03 WIB',
+    },
+  ]
+
+  const { ModalGlobal: stateModal } = useStoreState(
+    (globalState) => globalState,
+  )
+  const showModal = stateModal && stateModal.initialState
+
   const { i18n } = useTranslation()
 
   const HandleChangeLanguage = (e) => {
     i18n.changeLanguage(e)
+  }
+
+  const HandleModal = (e) => {
+    dispatch.ModalGlobal.setModalGlobal({ name: e, show: false })
   }
 
   return (
@@ -140,6 +184,27 @@ export default function Layout({ children }) {
         </SidebarMenu>
         <CenterContent>{children}</CenterContent>
       </Content>
+      <Modal
+        show={showModal.status_order}
+        onClick={() => HandleModal('status_order')}
+        title="Status Pesanan"
+      >
+        <ContentModalStatusOrder data={data_step} />
+      </Modal>
+      <Modal
+        show={showModal.reject_order}
+        onClick={() => HandleModal('reject_order')}
+        title="Tolak Pesanan"
+      >
+        <ContentModalRejectOrder />
+      </Modal>
+      <Modal
+        show={showModal.accept_order}
+        onClick={() => HandleModal('accept_order')}
+        title="Terima Pesanan"
+      >
+        <ContentModalAcceptOrder />
+      </Modal>
     </React.Fragment>
   )
 }
