@@ -21,6 +21,13 @@ import Modal from '../../common/modal'
 import ContentModalStatusOrder from '../content-modal/modal-status-order'
 import ContentModalRejectOrder from '../content-modal/modal-reject-order'
 import ContentModalAcceptOrder from '../content-modal/modal-accept-order'
+import ContentModalShippingProblem from '../content-modal/modal-shipping-problem'
+import ContentModalCloseStore from '../content-modal/modal-close-store'
+import ContentModalBuyerRequst from '../content-modal/modal-buyer-request'
+import ContentModalEmptyStock from '../content-modal/modal-empty-stock'
+import ContentModalOther from '../content-modal/modal-other'
+import ContentModalChangeShipping from '../content-modal/modal-change-shipping'
+import ContentModalCanceledOrder from '../content-modal/modal-canceled-order'
 
 const Content = styled.div`
   position: fixed;
@@ -97,6 +104,11 @@ export default function Layout({ children }) {
 
   const HandleModal = (e) => {
     dispatch.ModalGlobal.setModalGlobal({ name: e, show: false })
+  }
+
+  const HandleModalReject = (e, v) => {
+    dispatch.ModalGlobal.setModalGlobal({ name: e, show: false })
+    dispatch.ModalGlobal.setModalGlobal({ name: v, show: true })
   }
 
   return (
@@ -196,14 +208,65 @@ export default function Layout({ children }) {
         onClick={() => HandleModal('reject_order')}
         title="Tolak Pesanan"
       >
-        <ContentModalRejectOrder />
+        <ContentModalRejectOrder handleModal={HandleModalReject} />
       </Modal>
       <Modal
         show={showModal.accept_order}
         onClick={() => HandleModal('accept_order')}
         title="Terima Pesanan"
       >
-        <ContentModalAcceptOrder />
+        <ContentModalAcceptOrder
+          handleCancel={() => HandleModal('accept_order')}
+        />
+      </Modal>
+      <Modal
+        show={showModal.empty_stock}
+        onClick={() => HandleModal('empty_stock')}
+        title="Stok Kosong"
+      >
+        <ContentModalEmptyStock handleBack={HandleModalReject} />
+      </Modal>
+      <Modal
+        show={showModal.close_store}
+        onClick={() => HandleModal('close_store')}
+        title="Toko sedang tutup"
+      >
+        <ContentModalCloseStore handleBack={HandleModalReject} />
+      </Modal>
+      <Modal
+        show={showModal.shipping_problem}
+        onClick={() => HandleModal('shipping_problem')}
+        title="Kendala jasa pengiriman"
+      >
+        <ContentModalShippingProblem handleBack={HandleModalReject} />
+      </Modal>
+      <Modal
+        show={showModal.buyer_request}
+        onClick={() => HandleModal('buyer_request')}
+        title="Permintaan pembeli"
+      >
+        <ContentModalBuyerRequst handleBack={HandleModalReject} />
+      </Modal>
+      <Modal
+        show={showModal.other}
+        onClick={() => HandleModal('other')}
+        title="Alasan Lainnya"
+      >
+        <ContentModalOther handleBack={HandleModalReject} />
+      </Modal>
+      <Modal
+        show={showModal.change_shipping}
+        onClick={() => HandleModal('change_shipping')}
+        title="Ganti jasa pengiriman"
+      >
+        <ContentModalChangeShipping />
+      </Modal>
+      <Modal
+        show={showModal.canceled_order}
+        onClick={() => HandleModal('canceled_order')}
+        title="Batalkan pesanan"
+      >
+        <ContentModalCanceledOrder />
       </Modal>
     </React.Fragment>
   )

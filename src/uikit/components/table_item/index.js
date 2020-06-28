@@ -93,7 +93,18 @@ export const ProductDetail = ({
   weight,
   price,
   notes,
+  showDetail,
 }) => {
+  const props = {
+    imgUrl: imgUrl,
+    productTitle: productTitle,
+    qty: qty,
+    weight: weight,
+    price: price,
+    notes: notes,
+    showDetail: showDetail || false,
+  }
+
   return (
     <Container margin="15px 0 0 0">
       <Row
@@ -102,38 +113,40 @@ export const ProductDetail = ({
         gridGap="10px"
       >
         <div>
-          <StyledImg imgUrl={imgUrl} />
+          <StyledImg imgUrl={props.imgUrl} />
         </div>
         <StyledDesc>
           <div>
             <StyledSpan>
-              <p>{productTitle}</p>
+              <p>{props.productTitle}</p>
             </StyledSpan>
-            <StyledTable>
-              <tbody>
-                <tr>
-                  <td>Jumlah</td>
-                  <td>: {qty}</td>
-                </tr>
-                <tr>
-                  <td>Berat</td>
-                  <td>: {weight}</td>
-                </tr>
-                <tr>
-                  <td>Harga</td>
-                  <td>: {Utils.currency(price, 'Rp')}</td>
-                </tr>
-                <tr>
-                  <td>Catatan</td>
-                  <td>
-                    :{' '}
-                    <StyledSpan color={Theme.colors.orange}>
-                      {notes}
-                    </StyledSpan>
-                  </td>
-                </tr>
-              </tbody>
-            </StyledTable>
+            {showDetail && (
+              <StyledTable>
+                <tbody>
+                  <tr>
+                    <td>Jumlah</td>
+                    <td>: {props.qty}</td>
+                  </tr>
+                  <tr>
+                    <td>Berat</td>
+                    <td>: {props.weight}</td>
+                  </tr>
+                  <tr>
+                    <td>Harga</td>
+                    <td>: {Utils.currency(props.price, 'Rp')}</td>
+                  </tr>
+                  <tr>
+                    <td>Catatan</td>
+                    <td>
+                      :{' '}
+                      <StyledSpan color={Theme.colors.orange}>
+                        {props.notes}
+                      </StyledSpan>
+                    </td>
+                  </tr>
+                </tbody>
+              </StyledTable>
+            )}
           </div>
         </StyledDesc>
       </Row>

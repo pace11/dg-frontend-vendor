@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import InputRadio from '../../uikit/components/selected_button'
 import InputSearch from '../../uikit/components/input_search'
-import Button from '../../uikit/components/button'
+import { Button } from '../../uikit/components/button'
 import DownloadReport from '../../assets/icons/DownloadReport'
 
 const ContainerMenu = styled.div`

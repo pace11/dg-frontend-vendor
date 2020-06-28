@@ -16,8 +16,8 @@ const RowInputSearch = styled.div`
     outline: none;
     padding: 0px 55px 0px 10px;
     background: transparent;
-    border: 1px solid ${theme.colors.gray};
     letter-spacing: 1.5;
+    border: 1px solid ${theme.colors.gray};
     border-radius: 10px;
     font-size: 14px;
     color: #828282;
