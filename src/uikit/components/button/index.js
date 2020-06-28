@@ -1,36 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
+import OnOutsiceClick from 'react-outclick'
 import styled from 'styled-components'
-import theme from '../../common/theme'
+import Theme from '../../common/theme'
 
 const VariantButton = {
   btnPrimary: {
-    background: theme.colors.red,
-    color: theme.colors.white,
+    background: Theme.colors.red,
+    color: Theme.colors.white,
     border: 0,
     cursor: 'pointer',
   },
   btnPrimaryOrange: {
-    background: theme.colors.orange,
-    color: theme.colors.white,
+    background: Theme.colors.orange,
+    color: Theme.colors.white,
     border: 0,
     cursor: 'pointer',
   },
   btnPrimaryOutline: {
     background: 'transparent',
-    color: theme.colors.red,
-    border: `1px solid ${theme.colors.red}`,
+    color: Theme.colors.red,
+    border: `1px solid ${Theme.colors.red}`,
     cursor: 'pointer',
   },
   btnPrimaryOrangeOutline: {
     background: 'transparent',
-    color: theme.colors.orange2,
-    border: `1px solid ${theme.colors.orange2}`,
+    color: Theme.colors.orange2,
+    border: `1px solid ${Theme.colors.orange2}`,
     cursor: 'pointer',
   },
   btnSecondaryOutline: {
     background: 'transparent',
-    color: theme.colors.black,
-    border: `1px solid ${theme.colors.gray}`,
+    color: Theme.colors.black,
+    border: `1px solid ${Theme.colors.gray}`,
     cursor: 'pointer',
   },
   btnDisable: {
@@ -105,14 +106,42 @@ const StyledButton = styled.button`
   }
 `
 
-export default function Button({
+const ContainerDropdown = styled.div`
+  position: relative;
+`
+
+const RowList = styled.div`
+  position: absolute;
+  width: auto;
+  height: auto;
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  margin: 5px 0;
+  padding: 5px 0;
+  user-select: none;
+  p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    margin: 0;
+    width: auto;
+    padding: 5px 10px;
+  }
+  p:hover {
+    background: ${Theme.colors.pink};
+    cursor: pointer;
+  }
+`
+
+export const Button = ({
   children,
   variant,
   size,
   block,
   onClick,
   disabled,
-}) {
+}) => {
   return (
     <Container size={size}>
       <StyledButton
@@ -124,5 +153,50 @@ export default function Button({
         {children}
       </StyledButton>
     </Container>
+  )
+}
+
+export const ButtonDropdown = ({
+  children,
+  variant,
+  size,
+  block,
+  onClick,
+  disabled,
+  list,
+}) => {
+  const [show, setShow] = useState(false)
+  const HandleClick = (e) => {
+    setShow(!show)
+    onClick(e)
+  }
+
+  return (
+    <ContainerDropdown>
+      <OnOutsiceClick onOutsideClick={() => setShow(false)}>
+        <Container size={size}>
+          <StyledButton
+            block={block}
+            variant={variant}
+            onClick={() => setShow(!show)}
+            disabled={disabled}
+          >
+            {children}
+          </StyledButton>
+        </Container>
+        {show && (
+          <RowList>
+            {list.map((item, i) => (
+              <p
+                key={String(i)}
+                onClick={() => HandleClick(item.value)}
+              >
+                {item.text}
+              </p>
+            ))}
+          </RowList>
+        )}
+      </OnOutsiceClick>
+    </ContainerDropdown>
   )
 }

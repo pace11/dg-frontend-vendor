@@ -38,7 +38,12 @@ const WrapperButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 25px;
+  margin-top: 20px;
+  div:not(:first-child) {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+  }
 `
 
 const StepText = styled.div`
@@ -52,9 +57,9 @@ const StepText = styled.div`
 
 /**
  *
- * @param {Function} props.handleModal
+ * @param {Function} props.handleBack
  */
-export default function ModalRejectOrder({ handleModal }) {
+export default function ModalShippingProblem({ handleBack }) {
   const [data, setData] = useState('')
   return (
     <Container>
@@ -75,49 +80,49 @@ export default function ModalRejectOrder({ handleModal }) {
         </Row>
         <Row>
           <Radio
-            value="empty_stock"
-            text="Stok Kosong"
-            placeholder="Status produk akan berubah menjadi tidak dijual"
+            value="1"
+            text="Biaya pengiriman tidak sesuai"
             isSelected={data}
-            onClick={() => setData('empty_stock')}
+            onClick={() => setData('1')}
           />
           <Radio
-            value="close_store"
-            text="Toko sedang tutup"
+            value="2"
+            text="Kantor jasa pengiriman tutup"
             isSelected={data}
-            onClick={() => setData('close_store')}
+            onClick={() => setData('2')}
           />
           <Radio
-            value="shipping_problem"
-            text="Kendala jasa pengiriman"
+            value="3"
+            text="Tidak dapat mengirim dengan jasa pengiriman yang dipilih"
             isSelected={data}
-            onClick={() => setData('shipping_problem')}
+            onClick={() => setData('3')}
           />
           <Radio
-            value="buyer_request"
-            text="Permintaan pembeli"
-            isSelected={data}
-            onClick={() => setData('buyer_request')}
-          />
-          <Radio
-            value="other"
+            value="4"
             text="Lainnya"
             isSelected={data}
-            onClick={() => setData('other')}
+            onClick={() => setData('4')}
           />
         </Row>
       </ReasonBox>
       <WrapperButton>
         <div>
-          <StepText>Langkah 1/2</StepText>
+          <StepText>Langkah 2/2</StepText>
         </div>
         <div>
           <Button
+            variant="secondary-outline"
+            onClick={() =>
+              handleBack('shipping_problem', 'reject_order')
+            }
+          >
+            Kembali
+          </Button>
+          <Button
             variant="primary-orange"
             disabled={data ? false : true}
-            onClick={() => handleModal('reject_order', data)}
           >
-            Selanjutnya
+            Tolak Pesanan
           </Button>
         </div>
       </WrapperButton>

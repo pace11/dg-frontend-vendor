@@ -8,7 +8,7 @@ import {
   DetailCourier,
   DetailPrice,
 } from '../../uikit/components/table_item'
-import Button from '../../uikit/components/button'
+import { Button, ButtonDropdown } from '../../uikit/components/button'
 import StatusSearch from '../../assets/icons/StatusSearch'
 import Print from '../../assets/icons/Print'
 import Chat from '../../assets/icons/Chat2'
@@ -85,6 +85,7 @@ export default function ListContentSale({ handleModal }) {
               weight="160 gr"
               price={90500}
               notes="Navy Blue"
+              showDetail
             />
           </ColProduct>
           <ColShipping>
@@ -131,9 +132,22 @@ export default function ListContentSale({ handleModal }) {
               <PrintIcon />
               Cetak Struk Pengiriman
             </Button>
-            <Button variant="secondary-outline">
+            <ButtonDropdown
+              variant="secondary-outline"
+              onClick={(e) => handleModal(e)}
+              list={[
+                {
+                  text: 'Ganti Jasa Pengiriman',
+                  value: 'change_shipping',
+                },
+                {
+                  text: 'Batalkan Pesanan',
+                  value: 'canceled_order',
+                },
+              ]}
+            >
               Menu Lainnya <ArrowIcon />
-            </Button>
+            </ButtonDropdown>
           </WrapperButton>
           <WrapperButton
             display="grid"

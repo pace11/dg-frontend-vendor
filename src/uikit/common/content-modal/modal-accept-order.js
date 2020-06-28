@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Button from '../../components/button'
+import { Button } from '../../components/button'
 
 const Container = styled.div`
   width: 100%;
@@ -23,7 +23,7 @@ const WrapperButton = styled.div`
   }
 `
 
-export default function ModalAcceptOrder({ data }) {
+export default function ModalAcceptOrder({ handleCancel }) {
   return (
     <Container>
       <ul>
@@ -37,8 +37,15 @@ export default function ModalAcceptOrder({ data }) {
       </ul>
       <WrapperButton>
         <div>
-          <Button variant="secondary-outline">Batal</Button>
-          <Button variant="primary-orange">Terima Pesanan</Button>
+          <Button variant="secondary-outline" onClick={handleCancel}>
+            Batal
+          </Button>
+          <Button
+            variant="primary-orange"
+            onClick={() => alert('terima pesanan')}
+          >
+            Terima Pesanan
+          </Button>
         </div>
       </WrapperButton>
     </Container>
