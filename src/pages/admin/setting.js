@@ -1,10 +1,11 @@
 import React from 'react'
 import Layout from '../../uikit/common/layout'
+import Section from '../../uikit/common/section'
 
 export default function Setting() {
   return (
     <Layout>
-      <p>Atur Admin</p>
+      <Section title="Atur Admin"></Section>
     </Layout>
   )
 }

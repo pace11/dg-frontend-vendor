@@ -1,10 +1,11 @@
 import React from 'react'
 import Layout from '../../uikit/common/layout'
+import Section from '../../uikit/common/section'
 
 export default function Ad() {
   return (
     <Layout>
-      <p>Iklan</p>
+      <Section title="Iklan"></Section>
     </Layout>
   )
 }

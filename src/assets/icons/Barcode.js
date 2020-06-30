@@ -1,0 +1,14 @@
+import * as React from 'react'
+
+function SvgBarcode(props) {
+  return (
+    <svg width={222} height={45} fill="none" {...props}>
+      <path
+        d="M112.5 0v45h11.842V0H112.5zm14.211 0v45h7.105V0h-7.105zm9.473 0v45h2.369V0h-2.369zm4.737 0v45h7.105V0h-7.105zm9.474 0v45h2.368V0h-2.368zm7.105 0v45h2.368V0H157.5zm5.921 0v45h2.368V0h-2.368zm4.737 0v45h2.368V0h-2.368zm7.105 0v45h9.474V0h-9.474zm14.211 0v45h7.105V0h-7.105zm9.473 0v45h2.369V0h-2.369zm4.737 0v45h4.737V0h-4.737zm8.29 0v45h9.473V0h-9.473zM0 0v45h11.842V0H0zm14.21 0v45h7.106V0H14.21zm9.474 0v45h2.369V0h-2.369zm4.737 0v45h7.105V0h-7.105zm9.474 0v45h2.368V0h-2.368zM45 0v45h2.368V0H45zm5.921 0v45h2.368V0h-2.368zm4.737 0v45h2.368V0h-2.368zm7.105 0v45h9.474V0h-9.474zm14.21 0v45h7.106V0h-7.105zm9.474 0v45h2.369V0h-2.369zm4.737 0v45h4.737V0h-4.737zm8.29 0v45h9.473V0h-9.473z"
+        fill="#332C2B"
+      />
+    </svg>
+  )
+}
+
+export default SvgBarcode

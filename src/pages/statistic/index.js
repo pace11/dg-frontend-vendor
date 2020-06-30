@@ -1,10 +1,11 @@
 import React from 'react'
 import Layout from '../../uikit/common/layout'
+import Section from '../../uikit/common/section'
 
 export default function Statistic() {
   return (
     <Layout>
-      <p>Statistik</p>
+      <Section title="Statistik"></Section>
     </Layout>
   )
 }

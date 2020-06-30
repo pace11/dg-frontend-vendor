@@ -50,11 +50,17 @@ const RightIcon = styled.div`
   }
 `
 
-export default function InputSearch() {
+export default function InputSearch({ placeholder }) {
+  const props = {
+    placeholder:
+      placeholder ||
+      'Cari nama pemesan, produk, nomor resi atau invoice ?',
+  }
+
   return (
     <Container>
       <RowInputSearch>
-        <input placeholder="Cari nama pemesan, produk, nomor resi atau invoice ?" />
+        <input placeholder={props.placeholder} />
         <RightIcon>
           <SearchIcon />
         </RightIcon>

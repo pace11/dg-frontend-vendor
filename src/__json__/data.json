@@ -1,0 +1,68 @@
+{
+    "list_sale": [
+        {
+            "order_status": false,
+            "cust_name": "Ryan Pace",
+            "order_id": "INV/2982971/277198707",
+            "booking_code": "TJNE-90892893",
+            "booking_date": "24 Jun 2020 , 19:31 WIB",
+            "response_deadline_status": false,
+            "response_deadline_hour": 23,
+            "on_shipping_status": "Pesanan baru",
+            "product_details": [
+                {
+                    "product_name": "Uneed Nylon Kabel Data Micro USB Fast Charging 2.1A - UCBM1 ",
+                    "qty": 1,
+                    "weight": 1,
+                    "product_price": 198000,
+                    "notes": "Navy Blue",
+                    "total_cost": 566000
+                }
+            ],
+            "shipping_details": {
+                "receiver_name": "Ryan Pace",
+                "shipping_address": "Jl. Pramuka no.5",
+                "shipping_kec": "Kec Mekarjaya",
+                "shipping_kel": "Kel Sukmajaya",
+                "shipping_city": "Tangerang",
+                "shipping_province": "Banten",
+                "shipping_postalcode": "25321",
+                "shipping_phonenumber": "08772994940",
+                "shipping_v": "JNE",
+                "shipping_cost": 18000
+            }
+        },
+        {
+            "order_status": false,
+            "cust_name": "Umar Bakri",
+            "order_id": "INV/2572971/299199302",
+            "booking_code": "TJNE-90892321",
+            "booking_date": "10 Mei 2020 , 15:31 WIB",
+            "response_deadline_status": false,
+            "response_deadline_hour": 20,
+            "on_shipping_status": "Pesanan baru",
+            "product_details": [
+                {
+                    "product_name": "Ambigo Marlow JKT19 Running Shoes Sepatu Olahraga Pria",
+                    "qty": 3,
+                    "weight": 1,
+                    "product_price": 80000,
+                    "notes": "Warna Ijo ukuran 40",
+                    "total_cost": 276000
+                }
+            ],
+            "shipping_details": {
+                "receiver_name": "Umar Bakri",
+                "shipping_address": "Jl. H junib ",
+                "shipping_kec": "Kec Cengkareng",
+                "shipping_kel": "Kel Duri Kosambi",
+                "shipping_city": "Jakarta Barat",
+                "shipping_province": "DKI Jakarta",
+                "shipping_postalcode": "11750",
+                "shipping_phonenumber": "082248080870",
+                "shipping_v": "SICEPAT",
+                "shipping_cost": 15000
+            }
+        }
+    ]
+}

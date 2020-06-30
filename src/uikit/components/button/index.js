@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import OnOutsiceClick from 'react-outclick'
 import styled from 'styled-components'
 import Theme from '../../common/theme'
@@ -79,6 +80,9 @@ const HandlingSizeButton = (e) => {
 const Container = styled.div`
   width: 100%;
   ${(props) => HandlingSizeButton(props.size)}
+  a {
+    text-decoration: none;
+  }
 `
 
 const StyledButton = styled.button`
@@ -137,6 +141,7 @@ const RowList = styled.div`
 export const Button = ({
   children,
   variant,
+  linkTo,
   size,
   block,
   onClick,
@@ -144,14 +149,16 @@ export const Button = ({
 }) => {
   return (
     <Container size={size}>
-      <StyledButton
-        block={block}
-        variant={variant}
-        onClick={onClick}
-        disabled={disabled}
-      >
-        {children}
-      </StyledButton>
+      <Link to={linkTo ? `${linkTo}` : `#`}>
+        <StyledButton
+          block={block}
+          variant={variant}
+          onClick={onClick}
+          disabled={disabled}
+        >
+          {children}
+        </StyledButton>
+      </Link>
     </Container>
   )
 }
