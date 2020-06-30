@@ -1,3 +1,5 @@
+import { useLocation } from 'react-router-dom'
+
 /**
  *
  * @param {Number} params
@@ -18,6 +20,15 @@ const currency = (params, prefix) => {
   return `${prefix} ${value}`
 }
 
+/**
+ *
+ * function to get value in query param
+ */
+const useQuery = () => {
+  return new URLSearchParams(useLocation().search)
+}
+
 export default {
   currency: currency,
+  useQuery: useQuery,
 }

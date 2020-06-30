@@ -251,7 +251,7 @@ export const DetailPrice = ({
               <td>Harga Produk :</td>
               <td>
                 {listProduct.map((item, i) => (
-                  <StyledSpan display="block">
+                  <StyledSpan key={String(i)} display="block">
                     {`${Utils.currency(item.product_price, 'Rp')} (${
                       item.qty
                     } buah)`}
