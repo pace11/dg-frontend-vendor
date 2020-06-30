@@ -112,47 +112,49 @@ export default function ContentSale({ handleModal, data }) {
                 />
               </Col>
             </Row>
-            {item.product_details.map((items, j) => (
-              <Row
-                key={String(j)}
-                display="grid"
-                gridTemplateColumns="35% 25% 15% 25%"
-              >
-                <Col>
-                  <ProductDetail
-                    productTitle={`${items.product_name}`}
-                    qty={`${items.qty}`}
-                    weight={`${items.weight} gram`}
-                    price={`${items.product_price}`}
-                    notes={`${items.notes}`}
-                    showDetail
-                  />
-                </Col>
-                <Col borderLeft={`1px solid ${Theme.colors.gray4}`}>
-                  <AddressOrder
-                    name={`${item.shipping_details.receiver_name}`}
-                    address={`${item.shipping_details.shipping_address}, ${item.shipping_details.shipping_kec}, ${item.shipping_details.shipping_kel}, ${item.shipping_details.shipping_city}, ${item.shipping_details.shipping_province}, ${item.shipping_details.shipping_postalcode}, ${item.shipping_details.shipping_phonenumber}`}
-                    bookingCode={`${item.booking_code}`}
-                  />
-                </Col>
-                <Col borderLeft={`1px solid ${Theme.colors.gray4}`}>
-                  <DetailCourier
-                    name={`${item.shipping_details.shipping_v}`}
-                    price={item.shipping_details.shipping_cost}
-                  />
-                </Col>
-                <Col borderLeft={`1px solid ${Theme.colors.gray4}`}>
-                  <DetailPrice
-                    total={items.total_cost}
-                    productPrice={items.total_cost}
-                    qty={items.qty}
-                    shippingPrice={
-                      item.shipping_details.shipping_cost
-                    }
-                  />
-                </Col>
-              </Row>
-            ))}
+            <Row display="grid" gridTemplateColumns="35% 25% 15% 25%">
+              <Col>
+                <Row
+                  display="grid"
+                  gridTemplateColumns="1fr"
+                  gridGap="5px"
+                >
+                  {item.product_details.map((items, j) => (
+                    <Col key={String(j)}>
+                      <ProductDetail
+                        productTitle={`${items.product_name}`}
+                        qty={`${items.qty}`}
+                        weight={`${items.weight} gram`}
+                        price={`${items.product_price}`}
+                        notes={`${items.notes}`}
+                        showDetail
+                      />
+                    </Col>
+                  ))}
+                </Row>
+              </Col>
+              <Col borderLeft={`1px solid ${Theme.colors.gray4}`}>
+                <AddressOrder
+                  name={`${item.shipping_details.receiver_name}`}
+                  address={`${item.shipping_details.shipping_address}, ${item.shipping_details.shipping_kec}, ${item.shipping_details.shipping_kel}, ${item.shipping_details.shipping_city}, ${item.shipping_details.shipping_province}, ${item.shipping_details.shipping_postalcode}, ${item.shipping_details.shipping_phonenumber}`}
+                  bookingCode={`${item.booking_code}`}
+                />
+              </Col>
+              <Col borderLeft={`1px solid ${Theme.colors.gray4}`}>
+                <DetailCourier
+                  name={`${item.shipping_details.shipping_v}`}
+                  price={item.shipping_details.shipping_cost}
+                />
+              </Col>
+              <Col borderLeft={`1px solid ${Theme.colors.gray4}`}>
+                <DetailPrice
+                  total={item.total_cost}
+                  listProduct={item.product_details}
+                  qty={10}
+                  shippingPrice={item.shipping_details.shipping_cost}
+                />
+              </Col>
+            </Row>
             <Row
               display="flex"
               justifyContent="space-between"
