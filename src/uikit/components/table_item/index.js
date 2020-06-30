@@ -49,6 +49,11 @@ const StyledTable = styled.table`
   font-size: 12px;
   color: ${Theme.colors.gray};
   border-spacing: 0;
+  tr {
+    td {
+      vertical-align: top;
+    }
+  }
 `
 
 export const Invoice = ({
@@ -229,8 +234,7 @@ export const DetailCourier = ({ name, price }) => {
 
 export const DetailPrice = ({
   total,
-  productPrice,
-  qty,
+  listProduct,
   shippingPrice,
 }) => {
   return (
@@ -244,16 +248,20 @@ export const DetailPrice = ({
         <StyledTable>
           <tbody>
             <tr>
-              <td>Harga Produk</td>
+              <td>Harga Produk :</td>
               <td>
-                :{' '}
-                {Utils.currency(productPrice, 'Rp') +
-                  ` (${qty} buah)`}
+                {listProduct.map((item, i) => (
+                  <StyledSpan display="block">
+                    {`${Utils.currency(item.product_price, 'Rp')} (${
+                      item.qty
+                    } buah)`}
+                  </StyledSpan>
+                ))}
               </td>
             </tr>
             <tr>
-              <td>Ongkos Kirim</td>
-              <td>: {Utils.currency(shippingPrice, 'Rp')}</td>
+              <td>Ongkos Kirim :</td>
+              <td>{Utils.currency(shippingPrice, 'Rp')}</td>
             </tr>
           </tbody>
         </StyledTable>

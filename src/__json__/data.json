@@ -8,6 +8,7 @@
             "booking_date": "24 Jun 2020 , 19:31 WIB",
             "response_deadline_status": false,
             "response_deadline_hour": 23,
+            "total_cost": 566000,
             "on_shipping_status": "Pesanan baru",
             "product_details": [
                 {
@@ -15,8 +16,14 @@
                     "qty": 1,
                     "weight": 1,
                     "product_price": 198000,
-                    "notes": "Navy Blue",
-                    "total_cost": 566000
+                    "notes": "Navy Blue"
+                },
+                {
+                    "product_name": "Onix Ori Micro USB Fast Report 2.1A - UCBM1 ",
+                    "qty": 2,
+                    "weight": 1,
+                    "product_price": 254000,
+                    "notes": "Navy Blue"
                 }
             ],
             "shipping_details": {
@@ -41,14 +48,14 @@
             "response_deadline_status": false,
             "response_deadline_hour": 20,
             "on_shipping_status": "Pesanan baru",
+            "total_cost": 386000,
             "product_details": [
                 {
                     "product_name": "Ambigo Marlow JKT19 Running Shoes Sepatu Olahraga Pria",
                     "qty": 3,
                     "weight": 1,
                     "product_price": 80000,
-                    "notes": "Warna Ijo ukuran 40",
-                    "total_cost": 276000
+                    "notes": "Warna Ijo ukuran 40"
                 }
             ],
             "shipping_details": {
