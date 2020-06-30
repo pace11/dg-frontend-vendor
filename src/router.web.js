@@ -14,6 +14,7 @@ import Statistic from './pages/statistic'
 import Review from './pages/reviews'
 import Customer from './pages/customer'
 import AdminSetting from './pages/admin/setting'
+import ReceiptPrint from './pages/print/receipt'
 
 export default function RouterWeb() {
   return (
@@ -32,6 +33,7 @@ export default function RouterWeb() {
       <Route path="/review" exact component={Review} />
       <Route path="/customer" exact component={Customer} />
       <Route path="/admin/setting" exact component={AdminSetting} />
+      <Route path="/print/receipt" exact component={ReceiptPrint} />
     </BrowserRouter>
   )
 }

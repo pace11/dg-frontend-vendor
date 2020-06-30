@@ -17,6 +17,7 @@ import {
   CustomerCare,
   Setting,
 } from '../../../assets/icons'
+import FloatingChat from '../../common/floating-chat'
 import Modal from '../../common/modal'
 import ContentModalStatusOrder from '../content-modal/modal-status-order'
 import ContentModalRejectOrder from '../content-modal/modal-reject-order'
@@ -196,6 +197,7 @@ export default function Layout({ children }) {
         </SidebarMenu>
         <CenterContent>{children}</CenterContent>
       </Content>
+      <FloatingChat />
       <Modal
         show={showModal.status_order}
         onClick={() => HandleModal('status_order')}

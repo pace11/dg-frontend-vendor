@@ -1,7 +1,35 @@
 import React from 'react'
 import styled from 'styled-components'
-import theme from '../../uikit/common/theme'
-import ListContentSale from './list-content-sale'
+import Theme from '../../uikit/common/theme'
+import {
+  Invoice,
+  ProductDetail,
+  ResponseOrder,
+  AddressOrder,
+  DetailCourier,
+  DetailPrice,
+} from '../../uikit/components/table_item'
+import { Button, ButtonDropdown } from '../../uikit/components/button'
+import StatusSearch from '../../assets/icons/StatusSearch'
+import Print from '../../assets/icons/Print'
+import Chat from '../../assets/icons/Chat2'
+import Arrow from '../../assets/icons/Arrow2'
+
+const ChatIcon = styled(Chat)`
+  fill: ${Theme.colors.black};
+`
+
+const StatusSearchIcon = styled(StatusSearch)`
+  fill: ${Theme.colors.black};
+`
+
+const PrintIcon = styled(Print)`
+  fill: ${Theme.colors.black};
+`
+
+const ArrowIcon = styled(Arrow)`
+  transform: rotate(180deg);
+`
 
 const ContainerMenu = styled.div`
   background: #ffffff;
@@ -10,6 +38,22 @@ const ContainerMenu = styled.div`
   box-sizing: border-box;
   padding: 10px 20px;
   margin-bottom: 20px;
+`
+
+const ContainerContent = styled.div`
+  width: 100%;
+  height: auto;
+`
+
+const Row = styled.div`
+  height: auto;
+  ${(props) => props}
+`
+
+const Col = styled.div`
+  height: auto;
+  padding: 0 10px;
+  ${(props) => props}
 `
 
 const RowTitle = styled.div`
@@ -22,8 +66,9 @@ const RowTitle = styled.div`
   div {
     display: flex;
     align-items: center;
+    padding: 0 10px;
   }
-  border-bottom: 1px solid ${theme.colors.gray};
+  border-bottom: 1px solid ${Theme.colors.gray};
   box-sizing: border-box;
 `
 
@@ -33,10 +78,7 @@ const RowContent = styled.div`
   height: auto;
 `
 
-export default function ContentSale({
-  menu,
-  handleModal,
-}) {
+export default function ContentSale({ handleModal, data }) {
   return (
     <ContainerMenu>
       <RowTitle>
@@ -45,33 +87,141 @@ export default function ContentSale({
         <div>Jasa Pengiriman</div>
         <div>Total Harga</div>
       </RowTitle>
-      {menu === 'all_order' ? (
-        <RowContent>
-          <ListContentSale
-            handleModal={handleModal}
-          />
-        </RowContent>
-      ) : menu === 'new_order' ? (
-        <RowContent>
-          <p>Produk Baru Belum Ada</p>
-        </RowContent>
-      ) : menu === 'need_to_be_sent' ? (
-        <RowContent>
-          <p>Pesanan Perlu Dikirim Belum Ada</p>
-        </RowContent>
-      ) : menu === 'in_shipping' ? (
-        <RowContent>
-          <p>Pesanan Dalam Pengiriman Belum Ada</p>
-        </RowContent>
-      ) : menu === 'order_completed' ? (
-        <RowContent>
-          <p>Pesanan Selesai Belum Ada</p>
-        </RowContent>
-      ) : (
-        <RowContent>
-          <p>Pesanan Dibatalkan Belum Ada</p>
-        </RowContent>
-      )}
+      <RowContent>
+        {data.map((item, i) => (
+          <ContainerContent key={String(i)}>
+            <Row
+              display="grid"
+              margin="10px 0 0 0"
+              gridTemplateColumns="35% 65%"
+            >
+              <Col>
+                <Invoice
+                  name={`${item.cust_name}`}
+                  dateTime={`${item.booking_date}`}
+                  invoiceNumber={`${item.order_id}`}
+                  status={`${item.on_shipping_status}`}
+                  statusDone={false}
+                  statusCancel={false}
+                />
+              </Col>
+              <Col borderLeft={`1px solid ${Theme.colors.gray4}`}>
+                <ResponseOrder
+                  responseTime={`${item.response_deadline_hour} jam`}
+                  preOrder={item.response_deadline_status}
+                />
+              </Col>
+            </Row>
+            {item.product_details.map((items, j) => (
+              <Row
+                key={String(j)}
+                display="grid"
+                gridTemplateColumns="35% 25% 15% 25%"
+              >
+                <Col>
+                  <ProductDetail
+                    productTitle={`${items.product_name}`}
+                    qty={`${items.qty}`}
+                    weight={`${items.weight} gram`}
+                    price={`${items.product_price}`}
+                    notes={`${items.notes}`}
+                    showDetail
+                  />
+                </Col>
+                <Col borderLeft={`1px solid ${Theme.colors.gray4}`}>
+                  <AddressOrder
+                    name={`${item.shipping_details.receiver_name}`}
+                    address={`${item.shipping_details.shipping_address}, ${item.shipping_details.shipping_kec}, ${item.shipping_details.shipping_kel}, ${item.shipping_details.shipping_city}, ${item.shipping_details.shipping_province}, ${item.shipping_details.shipping_postalcode}, ${item.shipping_details.shipping_phonenumber}`}
+                    bookingCode={`${item.booking_code}`}
+                  />
+                </Col>
+                <Col borderLeft={`1px solid ${Theme.colors.gray4}`}>
+                  <DetailCourier
+                    name={`${item.shipping_details.shipping_v}`}
+                    price={item.shipping_details.shipping_cost}
+                  />
+                </Col>
+                <Col borderLeft={`1px solid ${Theme.colors.gray4}`}>
+                  <DetailPrice
+                    total={items.total_cost}
+                    productPrice={items.total_cost}
+                    qty={items.qty}
+                    shippingPrice={
+                      item.shipping_details.shipping_cost
+                    }
+                  />
+                </Col>
+              </Row>
+            ))}
+            <Row
+              display="flex"
+              justifyContent="space-between"
+              margin="10px 0"
+            >
+              <Col
+                display="grid"
+                gridTemplateColumns="repeat(4, auto)"
+                gridGap="10px"
+              >
+                <Button
+                  variant="secondary-outline"
+                  onClick={() => alert('chat pembeli')}
+                >
+                  <ChatIcon /> Chat Pembeli
+                </Button>
+                <Button
+                  variant="secondary-outline"
+                  onClick={() => handleModal('status_order')}
+                >
+                  <StatusSearchIcon />
+                  Status Pesanan
+                </Button>
+                <Button
+                  variant="secondary-outline"
+                  linkTo={`/print/receipt`}
+                >
+                  <PrintIcon />
+                  Cetak Struk Pengiriman
+                </Button>
+                <ButtonDropdown
+                  variant="secondary-outline"
+                  onClick={(e) => handleModal(e)}
+                  list={[
+                    {
+                      text: 'Ganti Jasa Pengiriman',
+                      value: 'change_shipping',
+                    },
+                    {
+                      text: 'Batalkan Pesanan',
+                      value: 'canceled_order',
+                    },
+                  ]}
+                >
+                  Menu Lainnya <ArrowIcon />
+                </ButtonDropdown>
+              </Col>
+              <Col
+                display="grid"
+                gridTemplateColumns="repeat(2, auto)"
+                gridGap="10px"
+              >
+                <Button
+                  variant="primary-outline"
+                  onClick={() => handleModal('reject_order')}
+                >
+                  Tolak Pesanan
+                </Button>
+                <Button
+                  variant="primary-orange"
+                  onClick={() => handleModal('accept_order')}
+                >
+                  Terima Pesanan
+                </Button>
+              </Col>
+            </Row>
+          </ContainerContent>
+        ))}
+      </RowContent>
     </ContainerMenu>
   )
 }

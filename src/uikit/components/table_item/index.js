@@ -106,7 +106,7 @@ export const ProductDetail = ({
   }
 
   return (
-    <Container margin="15px 0 0 0">
+    <Container padding="5px 0">
       <Row
         display="grid"
         gridTemplateColumns="3fr 7fr"
@@ -154,33 +154,38 @@ export const ProductDetail = ({
   )
 }
 
-export const ResponseAddressBooking = ({
-  responseTime,
-  preOrder,
-  name,
-  address,
-  bookingCode,
-}) => {
+export const ResponseOrder = ({ responseTime, preOrder }) => {
+  return (
+    <Container>
+      <Row>
+        <StyledSpan>Batas Respon: </StyledSpan>
+        <StyledSpan
+          fontWeight="600"
+          color={Theme.colors.orange}
+          marginLeft="5px"
+        >
+          {responseTime}
+        </StyledSpan>
+      </Row>
+      {preOrder && (
+        <Row display="flex">
+          <StyledSpan>Pre Order: </StyledSpan>
+          <StyledSpan
+            fontWeight="600"
+            color={Theme.colors.orange}
+            marginLeft="5px"
+          >
+            {preOrder}
+          </StyledSpan>
+        </Row>
+      )}
+    </Container>
+  )
+}
+
+export const AddressOrder = ({ name, address, bookingCode }) => {
   return (
     <React.Fragment>
-      <Container minHeight="50px">
-        {responseTime && (
-          <Row>
-            <StyledSpan>Batas Respon: </StyledSpan>
-            <StyledSpan fontWeight="600" color={Theme.colors.orange}>
-              {responseTime}
-            </StyledSpan>
-          </Row>
-        )}
-        {preOrder && (
-          <Row>
-            <StyledSpan>Pre Order: </StyledSpan>
-            <StyledSpan fontWeight="600" color={Theme.colors.orange}>
-              {preOrder}
-            </StyledSpan>
-          </Row>
-        )}
-      </Container>
       <Container>
         <Row>
           <StyledSpan fontWeight="600">{name}</StyledSpan>
@@ -209,7 +214,7 @@ export const ResponseAddressBooking = ({
 
 export const DetailCourier = ({ name, price }) => {
   return (
-    <Container marginTop="45px">
+    <Container>
       <Row>
         <StyledSpan fontWeight="600">{name}</StyledSpan>
       </Row>
@@ -229,7 +234,7 @@ export const DetailPrice = ({
   shippingPrice,
 }) => {
   return (
-    <Container marginTop="45px">
+    <Container>
       <Row>
         <StyledSpan fontWeight="600" color={Theme.colors.orange}>
           {Utils.currency(total, 'Rp')}
