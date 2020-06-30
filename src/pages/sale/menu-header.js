@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import InputRadio from '../../uikit/components/selected_button'
+import SelectedButton from '../../uikit/components/selected_button'
 import InputSearch from '../../uikit/components/input_search'
 import { Button } from '../../uikit/components/button'
 import DownloadReport from '../../assets/icons/DownloadReport'
@@ -25,45 +25,45 @@ const RowBottom = styled.div`
   grid-gap: 10px;
 `
 
-export default function MenuHeader({ isMenu, HandleChangeMenu }) {
+export default function MenuHeader({ status }) {
   return (
     <ContainerMenu>
       <RowTop>
-        <InputRadio
-          value="all_order"
+        <SelectedButton
+          value="all-order"
           text="Semua Pesanan"
-          isSelected={isMenu}
-          onClick={() => HandleChangeMenu('all_order')}
+          isSelected={status}
+          linkTo={`/sale?status=all-order`}
         />
-        <InputRadio
-          value="new_order"
+        <SelectedButton
+          value="new-order"
           text="Pesanan Baru (2)"
-          isSelected={isMenu}
-          onClick={() => HandleChangeMenu('new_order')}
+          isSelected={status}
+          linkTo={`/sale?status=new-order`}
         />
-        <InputRadio
-          value="need_to_be_sent"
+        <SelectedButton
+          value="need-shipped"
           text="Perlu Dikirim"
-          isSelected={isMenu}
-          onClick={() => HandleChangeMenu('need_to_be_sent')}
+          isSelected={status}
+          linkTo={`/sale?status=need-shipped`}
         />
-        <InputRadio
-          value="in_shipping"
+        <SelectedButton
+          value="in-shipping"
           text="Dalam Pengiriman"
-          isSelected={isMenu}
-          onClick={() => HandleChangeMenu('in_shipping')}
+          isSelected={status}
+          linkTo={`/sale?status=in-shipping`}
         />
-        <InputRadio
-          value="order_completed"
+        <SelectedButton
+          value="completed-order"
           text="Pesanan Selesai"
-          isSelected={isMenu}
-          onClick={() => HandleChangeMenu('order_completed')}
+          isSelected={status}
+          linkTo={`/sale?status=completed-order`}
         />
-        <InputRadio
-          value="canceled_order"
+        <SelectedButton
+          value="canceled-order"
           text="Pesanan Dibatalkan"
-          isSelected={isMenu}
-          onClick={() => HandleChangeMenu('canceled_order')}
+          isSelected={status}
+          linkTo={`/sale?status=canceled-order`}
         />
       </RowTop>
       <RowBottom>

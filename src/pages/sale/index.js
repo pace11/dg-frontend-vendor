@@ -1,18 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useStoreDispatch } from 'easy-peasy'
 import Layout from '../../uikit/common/layout'
 import Section from '../../uikit/common/section'
 import MenuHeader from './menu-header'
 import ContentSale from './content-sale'
+import Utils from '../../helpers/utils'
 import SaleData from '../../__json__/data.json'
 
 export default function Sale() {
+  const status = Utils.useQuery().get('status')
   const dispatch = useStoreDispatch()
-  const [isMenu, setIsMenu] = useState('all_order')
-
-  const HandleChangeMenu = (e) => {
-    setIsMenu(e)
-  }
 
   const HandleModal = (e) => {
     dispatch.ModalGlobal.setModalGlobal({ name: e, show: true })
@@ -23,15 +20,8 @@ export default function Sale() {
   return (
     <Layout>
       <Section title="Penjualan">
-        <MenuHeader
-          HandleChangeMenu={HandleChangeMenu}
-          isMenu={isMenu}
-        />
-        <ContentSale
-          menu={isMenu}
-          handleModal={HandleModal}
-          data={list_sale}
-        />
+        <MenuHeader status={status} />
+        <ContentSale handleModal={HandleModal} data={list_sale} />
       </Section>
     </Layout>
   )
