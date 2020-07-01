@@ -5,7 +5,7 @@ import Theme from '../../common/theme'
 const Container = styled.div`
   width: 100%;
   margin: 5px 0;
-  label {
+  div {
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -16,8 +16,9 @@ const Container = styled.div`
     width: 100%;
     font-family: Poppins;
     outline: none;
-    border: 1px solid ${Theme.colors.gray};
+    border: 1px solid ${Theme.colors.gray5};
     border-radius: 10px;
+    font-weight: 300;
     font-size: 14px;
     color: ${Theme.colors.gray4};
     -webkit-box-sizing: border-box;
@@ -46,11 +47,15 @@ const Container = styled.div`
  * @param {String} props.charLength
  * @param {Function} props.onChange
  */
-function TextArea({ label, maxLength, charLength, onChange }) {
+function TextArea({ label, maxLength, rows, charLength, onChange }) {
   return (
     <Container charLength={charLength} maxLength={maxLength}>
-      {label && <label>{label}</label>}
-      <textarea maxLength={maxLength} onChange={onChange} />
+      {label && <div>{label}</div>}
+      <textarea
+        maxLength={maxLength}
+        onChange={onChange}
+        rows={rows}
+      />
       <p>{`${charLength} / ${maxLength}`}</p>
     </Container>
   )
@@ -59,6 +64,7 @@ function TextArea({ label, maxLength, charLength, onChange }) {
 TextArea.defaultProps = {
   maxLength: 100,
   charLength: 0,
+  rows: 2,
 }
 
 export default TextArea

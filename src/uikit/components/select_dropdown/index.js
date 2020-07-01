@@ -6,7 +6,7 @@ import Arrow from '../../../assets/icons/Arrow2'
 
 const ArrowIcon = styled(Arrow)`
   transform: ${(props) =>
-    props.show ? `rotate(0deg)` : `rotate(180deg)`};
+    props.show === 'true' ? `rotate(0deg)` : `rotate(180deg)`};
 `
 
 const Container = styled.div`
@@ -14,19 +14,19 @@ const Container = styled.div`
   height: auto;
   padding: 10px 0;
   position: relative;
+  font-weight: 300;
   label {
     font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 21px;
-    color: ${Theme.colors.black};
+    color: ${Theme.colors.gray4};
   }
 `
 const Row = styled.div`
   width: 100%;
   box-sizing: border-box;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 300;
   font-size: 14px;
   ${(props) => props};
 `
@@ -37,7 +37,7 @@ const StyledText = styled.p`
   background: ${(props) =>
     props.isSelected ? Theme.colors.orange : '#fff'};
   color: ${(props) =>
-    props.isSelected ? '#fff' : Theme.colors.black};
+    props.isSelected ? '#fff' : Theme.colors.gray4};
   :hover {
     background: ${(props) =>
       props.isSelected ? Theme.colors.orange : Theme.colors.white};
@@ -78,7 +78,7 @@ export default function SelectDropdown({
           justifyContent="space-between"
           background="transparent"
           color={Theme.colors.black}
-          border={`1px solid ${Theme.colors.gray}`}
+          border={`1px solid ${Theme.colors.gray5}`}
           borderRadius="10px"
           padding="0 10px"
           cursor="pointer"
@@ -88,14 +88,14 @@ export default function SelectDropdown({
           <p>
             {props.value ? isValue[0].text : '- pilih salah satu -'}
           </p>
-          <ArrowIcon show={show} />
+          <ArrowIcon show={JSON.stringify(show)} />
         </Row>
         {show && (
           <Row
             position="absolute"
             background="#fff"
             margin="5px 0"
-            border={`1px solid ${Theme.colors.gray}`}
+            border={`1px solid ${Theme.colors.gray5}`}
             borderRadius="10px"
             overflow="hidden"
             userSelect="none"
