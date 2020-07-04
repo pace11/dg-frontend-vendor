@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom'
+import Cookies from 'js-cookie'
 
 /**
  *
@@ -28,7 +29,24 @@ const useQuery = () => {
   return new URLSearchParams(useLocation().search)
 }
 
+/**
+ * @param {Array} arr
+ * @param {String, Number} val
+ * function to get remove array by value
+ */
+const removeArray = (arr, val) => {
+  let newArr = arr.filter((item) => item !== val)
+  return newArr
+}
+
+/**
+ * function to check user after login
+ */
+const isLoggedIn = Cookies.get('dlg_vendor_token') ? true : false
+
 export default {
   currency: currency,
   useQuery: useQuery,
+  removeArray: removeArray,
+  isLoggedIn: isLoggedIn,
 }

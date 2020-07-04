@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import OnOutsiceClick from 'react-outclick'
+import Checkbox from '../../components/checkbox'
 import styled from 'styled-components'
 import Theme from '../../common/theme'
 import Arrow from '../../../assets/icons/Arrow2'
@@ -35,25 +36,31 @@ const StyledText = styled.p`
   margin: 0;
   padding: 5px;
   background: ${(props) =>
-    props.isSelected ? Theme.colors.orange : '#fff'};
+    props.isSelected ? Theme.colors.orangeSoft2 : '#fff'};
   color: ${(props) =>
-    props.isSelected ? '#fff' : Theme.colors.gray4};
+    props.isSelected ? Theme.colors.black : Theme.colors.black};
   :hover {
     background: ${(props) =>
-      props.isSelected ? Theme.colors.orange : Theme.colors.white};
+      props.isSelected
+        ? Theme.colors.orangeSoft2
+        : Theme.colors.white};
     cursor: pointer;
   }
 `
 
 export default function SelectDropdown({
+  variant,
   label,
+  text,
   value,
   list,
   onClick,
 }) {
   const props = {
-    value: value,
+    variant: variant,
     label: label,
+    text: text,
+    value: value,
     list: list || {},
     onClick: onClick,
   }
@@ -86,7 +93,11 @@ export default function SelectDropdown({
           onClick={() => setShow(!show)}
         >
           <p>
-            {props.value ? isValue[0].text : '- pilih salah satu -'}
+            {props.variant !== 'checkbox'
+              ? props.value
+                ? isValue[0].text
+                : '- pilih salah satu -'
+              : props.text}
           </p>
           <ArrowIcon show={JSON.stringify(show)} />
         </Row>
@@ -95,20 +106,28 @@ export default function SelectDropdown({
             position="absolute"
             background="#fff"
             margin="5px 0"
-            border={`1px solid ${Theme.colors.gray5}`}
+            boxShadow="0px 0px 10px rgba(0, 0, 0, 0.25)"
+            padding="5px 0"
             borderRadius="10px"
             overflow="hidden"
             userSelect="none"
+            zIndex="1"
           >
-            {props.list.map((item, i) => (
-              <StyledText
-                key={String(i)}
-                onClick={() => HandleClick(item.value)}
-                isSelected={value === item.value ? true : false}
-              >
-                {item.text}
-              </StyledText>
-            ))}
+            {props.variant !== 'checkbox'
+              ? props.list.map((item, i) => (
+                  <StyledText
+                    key={String(i)}
+                    onClick={() => HandleClick(item.value)}
+                    isSelected={value === item.value ? true : false}
+                  >
+                    {item.text}
+                  </StyledText>
+                ))
+              : props.list.map((item, i) => (
+                  <StyledText key={String(i)}>
+                    <Checkbox label={item.text} />
+                  </StyledText>
+                ))}
           </Row>
         )}
       </OnOutsiceClick>

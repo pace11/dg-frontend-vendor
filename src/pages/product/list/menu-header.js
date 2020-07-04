@@ -51,7 +51,11 @@ export default function MenuHeader({ isMenu, HandleChangeMenu }) {
           />
         </div>
         <div>
-          <Button block variant="primary-orange">
+          <Button
+            block
+            variant="primary-orange"
+            linkTo={`/product/add`}
+          >
             + Tambah Product
           </Button>
         </div>

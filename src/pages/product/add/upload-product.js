@@ -26,11 +26,20 @@ const Col = styled.div`
   ${(props) => props}
 `
 
-const Title = styled.p`
-  margin: 0;
+const StyledText = styled.span`
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
+  ${(props) => props}
+`
+
+const StyledList = styled.ul`
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  li {
+    padding: 5px;
+  }
 `
 
 export default function UploadProduct() {
@@ -77,10 +86,10 @@ export default function UploadProduct() {
   return (
     <Container>
       <Row padding="0 0 20px 0">
-        <Title>Upload Produk</Title>
+        <StyledText>Upload Produk</StyledText>
       </Row>
       <Row background={Theme.colors.orangeSoft} padding="10px">
-        <ul>
+        <StyledList>
           <li>
             Upload minimal 3 foto dapat meningkatkan kemungkinan
             barang terjual sebesar 10%
@@ -93,7 +102,7 @@ export default function UploadProduct() {
             Gunakan latar putih atau minimalis lalu foto barang dari
             segala sisi untuk menarik minat pembeli
           </li>
-        </ul>
+        </StyledList>
       </Row>
       <Row
         display="flex"
@@ -125,7 +134,7 @@ export default function UploadProduct() {
       </Row>
       <Row
         borderTop={`1px solid ${Theme.colors.gray5}`}
-        padding="30px"
+        padding="20px"
       >
         <Col
           display="flex"
@@ -142,10 +151,15 @@ export default function UploadProduct() {
             </Button>
           </div>
           <div>
-            <small>
+            <StyledText
+              fontSize="14px"
+              fontWeight="300"
+              margin="15px 0"
+              color={Theme.colors.gray4}
+            >
               Ukuran foto minimal 300x300px. Maksimum ukuran file 10
               MB. Format foto JPG, JPEG, PNG
-            </small>
+            </StyledText>
           </div>
         </Col>
       </Row>

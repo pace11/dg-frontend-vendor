@@ -1,10 +1,17 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import Cookies from 'js-cookie'
 import styled from 'styled-components'
 import Theme from '../../common/theme'
+import { Button } from '../../components/button'
 import DownloadAppsIcon from '../../../assets/icons/DownloadApps'
 import LogoMain from '../../../assets/icons/LogoMain'
 import NotificationIcon from '../../../assets/icons/Notification'
+import Logout from '../../../assets/icons/Logout'
+
+const LogoutIcon = styled(Logout)`
+  margin-right: 15px;
+`
 
 const ContainerHeader = styled.div`
   position: fixed;
@@ -98,6 +105,34 @@ const ColUser = styled.div`
   border-left: 1px solid ${Theme.colors.gray5};
 `
 
+const WrapperBrandInfo = styled.div`
+  position: relative;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  &:hover div {
+    display: block;
+  }
+`
+
+const ListBox = styled.div`
+  display: none;
+  position: absolute;
+  width: 250px;
+  height: auto;
+  background: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 10px;
+  right: 0;
+`
+
+const Row = styled.div`
+  width: auto;
+  height: auto;
+  ${(props) => props}
+`
+
 /**
  *
  * @param {Function} props.showModalLogin
@@ -108,6 +143,12 @@ const ColUser = styled.div`
  */
 export default function Header({ HandleChangeLanguage }) {
   const { t } = useTranslation()
+
+  const HandleLogout = () => {
+    Cookies.remove('dlg_vendor_token')
+    window.location.reload()
+  }
+
   return (
     <ContainerHeader>
       <HeaderTop>
@@ -139,7 +180,22 @@ export default function Header({ HandleChangeLanguage }) {
           </ColNotif>
           <ColUser>
             <ImgDiv />
-            <span>Nama Brand</span>
+            <WrapperBrandInfo>
+              <p>Dialogue - Vendor</p>
+              <ListBox>
+                <Row padding="0 25px">
+                  <div>
+                    <Button
+                      variant="primary-orange-outline"
+                      block
+                      onClick={() => HandleLogout()}
+                    >
+                      <LogoutIcon /> Logout
+                    </Button>
+                  </div>
+                </Row>
+              </ListBox>
+            </WrapperBrandInfo>
           </ColUser>
         </UserBox>
       </HeaderMenu>

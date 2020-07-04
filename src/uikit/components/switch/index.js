@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Switch from 'react-switch'
+import Theme from '../../common/theme'
 
 const Container = styled.div`
   display: inline;
@@ -22,15 +23,27 @@ const Container = styled.div`
  * @param {Function} props.onChange
  * @param {Boolean} props.checked
  */
-export default function ToogleSwitch({ label, onChange, checked }) {
+export default function ToogleSwitch({
+  label,
+  onChange,
+  checked,
+  width,
+  height,
+}) {
+  const props = {
+    onChange: onChange,
+    checked: checked,
+    uncheckedIcon: false,
+    checkedIcon: false,
+    onColor: Theme.colors.green2,
+    offColor: Theme.colors.gray2,
+    width: width || 40,
+    height: height || 20,
+  }
+
   return (
     <Container>
-      <Switch
-        checked={checked}
-        onChange={onChange}
-        uncheckedIcon={false}
-        checkedIcon={false}
-      />
+      <Switch {...props} />
       {label && <span>{label}</span>}
     </Container>
   )

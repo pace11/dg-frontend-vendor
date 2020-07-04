@@ -12,27 +12,13 @@ const ModalGlobal = {
     other: false,
     change_shipping: false,
     canceled_order: false,
+    set_shipping: false,
+    location_free_shipping: false,
   },
+
   fetchAction: action((state, payload) => {
     const { name, show } = payload
-    if (name === 'status_order')
-      state.initialState.status_order = show
-    else if (name === 'accept_order')
-      state.initialState.accept_order = show
-    else if (name === 'empty_stock')
-      state.initialState.empty_stock = show
-    else if (name === 'close_store')
-      state.initialState.close_store = show
-    else if (name === 'shipping_problem')
-      state.initialState.shipping_problem = show
-    else if (name === 'buyer_request')
-      state.initialState.buyer_request = show
-    else if (name === 'other') state.initialState.other = show
-    else if (name === 'change_shipping')
-      state.initialState.change_shipping = show
-    else if (name === 'canceled_order')
-      state.initialState.canceled_order = show
-    else state.initialState.reject_order = show
+    state.initialState[name] = show
   }),
 
   setModalGlobal: thunk(async (actions, payload) => {

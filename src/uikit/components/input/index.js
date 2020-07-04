@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Theme from '../../common/theme'
+import EyeIcon from '../../../assets/icons/Eye'
 
 const Container = styled.div`
   width: 100%;
@@ -12,6 +13,12 @@ const Container = styled.div`
     font-size: 14px;
     line-height: 21px;
     color: ${Theme.colors.black};
+  }
+  div:last-child {
+    font-weight: 300;
+    font-size: 12px;
+    color: ${Theme.colors.gray4};
+    text-align: right;
   }
   input {
     font-family: 'Poppins', sans-serif;
@@ -53,10 +60,31 @@ const WrapperInput = styled.div`
   }
 `
 
+const WrapperPassword = styled.div`
+  width: 100%;
+  height: auto;
+  position: relative;
+`
+
+const WrapperIcon = styled.span`
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  cursor: pointer;
+  svg {
+    fill: ${(props) =>
+      props.isType === 'password'
+        ? Theme.colors.green
+        : Theme.colors.gray};
+  }
+`
+
 export const Text = ({
   label,
   type,
   value,
+  placeholder,
+  caption,
   onChange,
   addOnLeft,
   addOnRight,
@@ -72,8 +100,40 @@ export const Text = ({
       {label && <div>{label}</div>}
       <WrapperInput addOnLeft={addOnLeft} addOnRight={addOnRight}>
         <RenderAddon addOnLeft={addOnLeft} addOnRight={addOnRight} />
-        <input type={type} value={value} onChange={onChange} />
+        <input
+          type={type}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+        />
       </WrapperInput>
+      {caption && <div>{caption}</div>}
+    </Container>
+  )
+}
+
+export const Password = ({ label, value, placeholder, onChange }) => {
+  const [isType, setIsType] = useState('password')
+
+  return (
+    <Container>
+      {label && <div>{label}</div>}
+      <WrapperPassword>
+        <input
+          type={isType}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+        />
+        <WrapperIcon
+          onClick={() =>
+            setIsType(isType === 'password' ? 'text' : 'password')
+          }
+          isType={isType}
+        >
+          <EyeIcon />
+        </WrapperIcon>
+      </WrapperPassword>
     </Container>
   )
 }

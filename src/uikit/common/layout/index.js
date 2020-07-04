@@ -29,6 +29,8 @@ import ContentModalEmptyStock from '../content-modal/modal-empty-stock'
 import ContentModalOther from '../content-modal/modal-other'
 import ContentModalChangeShipping from '../content-modal/modal-change-shipping'
 import ContentModalCanceledOrder from '../content-modal/modal-canceled-order'
+import ContentModalSetShipping from '../content-modal/modal-set-shipping'
+import ContentModalLocationFreeShipping from '../content-modal/modal-location-free-shipping'
 
 const Content = styled.div`
   position: fixed;
@@ -135,7 +137,7 @@ export default function Layout({ children }) {
             elementId=""
             icon={<Sale />}
             text="Penjualan"
-            linkTo="/sale"
+            linkTo="/sale/all-order"
             notification={0}
           />
           <ListMenu
@@ -269,6 +271,30 @@ export default function Layout({ children }) {
         title="Batalkan pesanan"
       >
         <ContentModalCanceledOrder />
+      </Modal>
+
+      <Modal
+        show={showModal.canceled_order}
+        onClick={() => HandleModal('canceled_order')}
+        title="Batalkan pesanan"
+      >
+        <ContentModalCanceledOrder />
+      </Modal>
+
+      <Modal
+        show={showModal.set_shipping}
+        onClick={() => HandleModal('set_shipping')}
+        title="Jasa Pengiriman"
+      >
+        <ContentModalSetShipping />
+      </Modal>
+      <Modal
+        show={showModal.location_free_shipping}
+        onClick={() => HandleModal('location_free_shipping')}
+        title="Daerah Gratis Ongkir"
+        width="1200px"
+      >
+        <ContentModalLocationFreeShipping />
       </Modal>
     </React.Fragment>
   )

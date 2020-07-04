@@ -25,45 +25,45 @@ const RowBottom = styled.div`
   grid-gap: 10px;
 `
 
-export default function MenuHeader({ status }) {
+export default function MenuHeader({ slug }) {
   return (
     <ContainerMenu>
       <RowTop>
         <SelectedButton
           value="all-order"
           text="Semua Pesanan"
-          isSelected={status}
-          linkTo={`/sale?status=all-order`}
+          isSelected={slug}
+          linkTo={`/sale/all-order`}
         />
         <SelectedButton
           value="new-order"
           text="Pesanan Baru (2)"
-          isSelected={status}
-          linkTo={`/sale?status=new-order`}
+          isSelected={slug}
+          linkTo={`/sale/new-order`}
         />
         <SelectedButton
           value="need-shipped"
           text="Perlu Dikirim"
-          isSelected={status}
-          linkTo={`/sale?status=need-shipped`}
+          isSelected={slug}
+          linkTo={`/sale/need-shipped`}
         />
         <SelectedButton
           value="in-shipping"
           text="Dalam Pengiriman"
-          isSelected={status}
-          linkTo={`/sale?status=in-shipping`}
+          isSelected={slug}
+          linkTo={`/sale/in-shipping`}
         />
         <SelectedButton
           value="completed-order"
           text="Pesanan Selesai"
-          isSelected={status}
-          linkTo={`/sale?status=completed-order`}
+          isSelected={slug}
+          linkTo={`/sale/completed-order`}
         />
         <SelectedButton
           value="canceled-order"
           text="Pesanan Dibatalkan"
-          isSelected={status}
-          linkTo={`/sale?status=canceled-order`}
+          isSelected={slug}
+          linkTo={`/sale/canceled-order`}
         />
       </RowTop>
       <RowBottom>
