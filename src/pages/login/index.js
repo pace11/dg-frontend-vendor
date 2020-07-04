@@ -6,7 +6,6 @@ import ImageBg from '../../assets/svg/onboarding.svg'
 import Header from '../../uikit/common/header-clear'
 import { Button } from '../../uikit/components/button'
 import { Text, Password } from '../../uikit/components/input'
-import Utils from '../../helpers/utils'
 
 const Container = styled.div`
   position: relative;
@@ -73,7 +72,6 @@ function Login() {
       <Container>
         <FormLogin>
           <Row>
-            {Utils.isLoggedIn ? 'Sudah Login' : 'Belum Login'}
             <h4>Masuk</h4>
           </Row>
           <Text
