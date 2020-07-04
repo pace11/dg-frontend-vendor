@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom'
+import Cookies from 'js-cookie'
 
 /**
  *
@@ -38,8 +39,14 @@ const removeArray = (arr, val) => {
   return newArr
 }
 
+/**
+ * function to check user after login
+ */
+const isLoggedIn = Cookies.get('dlg_vendor_token') ? true : false
+
 export default {
   currency: currency,
   useQuery: useQuery,
   removeArray: removeArray,
+  isLoggedIn: isLoggedIn,
 }

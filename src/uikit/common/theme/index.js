@@ -5,6 +5,7 @@ export default {
     orange: '#EF4507',
     orange2: '#F56D06',
     orangeSoft: '#fdece6',
+    orangeSoft2: '#fcdbc1',
     yellow: '#F2C94C',
     green: '#219653',
     green2: '#27AE60',

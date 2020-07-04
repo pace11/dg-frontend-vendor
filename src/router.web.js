@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
+import ProtectedRoute from './protected-route'
 import Home from './pages/home'
 import Login from './pages/login'
 import Sale from './pages/sale'
@@ -19,21 +20,65 @@ import ReceiptPrint from './pages/print/receipt'
 export default function RouterWeb() {
   return (
     <BrowserRouter>
-      <Route path="/" exact component={Home} />
       <Route path="/login" exact component={Login} />
-      <Route path="/chat" exact component={Chat} />
-      <Route path="/sale/:slug" exact component={Sale} />
-      <Route path="/product/add" exact component={AddProduct} />
-      <Route path="/product" exact component={ListProduct} />
-      <Route path="/ad" exact component={Ad} />
-      <Route path="/promotion" exact component={Promotion} />
-      <Route path="/store/display" exact component={StoreDisplay} />
-      <Route path="/store/setting" exact component={StoreSetting} />
-      <Route path="/statistic" exact component={Statistic} />
-      <Route path="/review" exact component={Review} />
-      <Route path="/customer" exact component={Customer} />
-      <Route path="/admin/setting" exact component={AdminSetting} />
-      <Route path="/print/receipt" exact component={ReceiptPrint} />
+      <ProtectedRoute path="/" exact={true} component={Home} />
+      <ProtectedRoute path="/chat" exact={true} component={Chat} />
+      <ProtectedRoute
+        path="/sale/:slug"
+        exact={true}
+        component={Sale}
+      />
+      <ProtectedRoute
+        path="/product/add"
+        exact={true}
+        component={AddProduct}
+      />
+      <ProtectedRoute
+        path="/product"
+        exact={true}
+        component={ListProduct}
+      />
+      <ProtectedRoute path="/ad" exact={true} component={Ad} />
+      <ProtectedRoute
+        path="/promotion"
+        exact={true}
+        component={Promotion}
+      />
+      <ProtectedRoute
+        path="/store/display"
+        exact={true}
+        component={StoreDisplay}
+      />
+      <ProtectedRoute
+        path="/store/setting"
+        exact={true}
+        component={StoreSetting}
+      />
+      <ProtectedRoute
+        path="/statistic"
+        exact={true}
+        component={Statistic}
+      />
+      <ProtectedRoute
+        path="/review"
+        exact={true}
+        component={Review}
+      />
+      <ProtectedRoute
+        path="/customer"
+        exact={true}
+        component={Customer}
+      />
+      <ProtectedRoute
+        path="/admin/setting"
+        exact={true}
+        component={AdminSetting}
+      />
+      <ProtectedRoute
+        path="/print/receipt"
+        exact={true}
+        component={ReceiptPrint}
+      />
     </BrowserRouter>
   )
 }

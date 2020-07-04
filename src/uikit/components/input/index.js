@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Theme from '../../common/theme'
+import EyeIcon from '../../../assets/icons/Eye'
 
 const Container = styled.div`
   width: 100%;
@@ -59,6 +60,25 @@ const WrapperInput = styled.div`
   }
 `
 
+const WrapperPassword = styled.div`
+  width: 100%;
+  height: auto;
+  position: relative;
+`
+
+const WrapperIcon = styled.span`
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  cursor: pointer;
+  svg {
+    fill: ${(props) =>
+      props.isType === 'password'
+        ? Theme.colors.green
+        : Theme.colors.gray};
+  }
+`
+
 export const Text = ({
   label,
   type,
@@ -88,6 +108,32 @@ export const Text = ({
         />
       </WrapperInput>
       {caption && <div>{caption}</div>}
+    </Container>
+  )
+}
+
+export const Password = ({ label, value, placeholder, onChange }) => {
+  const [isType, setIsType] = useState('password')
+
+  return (
+    <Container>
+      {label && <div>{label}</div>}
+      <WrapperPassword>
+        <input
+          type={isType}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+        />
+        <WrapperIcon
+          onClick={() =>
+            setIsType(isType === 'password' ? 'text' : 'password')
+          }
+          isType={isType}
+        >
+          <EyeIcon />
+        </WrapperIcon>
+      </WrapperPassword>
     </Container>
   )
 }
