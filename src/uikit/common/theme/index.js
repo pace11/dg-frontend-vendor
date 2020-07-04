@@ -7,6 +7,7 @@ export default {
     orangeSoft: '#fdece6',
     yellow: '#F2C94C',
     green: '#219653',
+    green2: '#27AE60',
     gray: '#5F5D5D',
     gray2: '#8B8B8C',
     gray3: '#323335',

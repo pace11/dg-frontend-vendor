@@ -41,15 +41,13 @@ const WrapText = styled.div`
   }
 `
 
-const Title = styled.p`
-  margin: 0;
+const Title = styled.span`
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
 `
 
-const StyledText = styled.p`
-  margin: 0;
+const StyledText = styled.span`
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -216,6 +214,27 @@ export default function DetailProduct() {
           checked={data.pre_order}
           onChange={(e) => HandleChange('pre_order', e)}
         />
+      </Row>
+      <Row
+        display="grid"
+        gridTemplateColumns="repeat(2, 1fr)"
+        gridGap="10px"
+      >
+        <Col>
+          <Text
+            placeholder="Masukkan waktu proses"
+            caption="Maksimal 210 hari"
+            onChange={(e) => HandleChange('stok', e)}
+          />
+        </Col>
+        <Col>
+          <WrapText>
+            <p>
+              Waktu proses harus diisi untuk mengetahui lama produk
+              diproses
+            </p>
+          </WrapText>
+        </Col>
       </Row>
     </Container>
   )

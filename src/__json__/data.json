@@ -71,5 +71,219 @@
                 "shipping_cost": 15000
             }
         }
+    ],
+    "predifined_shipping": [
+        {
+            "name": "Sicepat",
+            "data": [
+                {
+                    "id": "1",
+                    "text": "SiCepat Reg"
+                },
+                {
+                    "id": "2",
+                    "text": "SiCepat Best"
+                },
+                {
+                    "id": "3",
+                    "text": "SiCepat Halu"
+                }
+            ]
+        },
+        {
+            "name": "JNE",
+            "data": [
+                {
+                    "id": "4",
+                    "text": "JNE YES"
+                },
+                {
+                    "id": "5",
+                    "text": "JNE Reg"
+                }
+            ]
+        }
+    ],
+    "predifined_free_shipping": [
+        {
+            "name": "Daerah Populer",
+            "data" :[
+                {
+                    "id": "1",
+                    "text": "Seluruh Indonesia"
+                },
+                {
+                    "id": "2",
+                    "text": "Jabodetabek"
+                },
+                {
+                    "id": "3",
+                    "text": "Pulau Jawa"
+                }
+            ]
+        },
+        {
+            "name": "Jawa & Bali",
+            "data" :[
+                {
+                    "id": "4",
+                    "text": "Banten"
+                },
+                {
+                    "id": "5",
+                    "text": "DKI Jakarta"
+                },
+                {
+                    "id": "6",
+                    "text": "Jawa Barat"
+                },
+                {
+                    "id": "7",
+                    "text": "Jawa Tengah,"
+                },
+                {
+                    "id": "8",
+                    "text": "Jawa Timur"
+                },
+                {
+                    "id": "9",
+                    "text": "Daerah Istimewa Yogyakarta"
+                },
+                {
+                    "id": "10",
+                    "text": "Bali"
+                }
+            ]
+        },
+        {
+            "name": "Sumatra & Bangka",
+            "data" :[
+                {
+                    "id": "11",
+                    "text": "Nanggro Aceh Darusallam"
+                },
+                {
+                    "id": "12",
+                    "text": "Bengkulu"
+                },
+                {
+                    "id": "13",
+                    "text": "Jambi"
+                },
+                {
+                    "id": "14",
+                    "text": "Kepulauan Bangka Belitung"
+                },
+                {
+                    "id": "15",
+                    "text": "Kepulauan Riau"
+                },
+                {
+                    "id": "16",
+                    "text": "Lampung"
+                },
+                {
+                    "id": "17",
+                    "text": "Riau"
+                },
+                {
+                    "id": "18",
+                    "text": "Sumatra Barat"
+                },
+                {
+                    "id": "19",
+                    "text": "Sumatra Selatan"
+                },
+                {
+                    "id": "20",
+                    "text": "Sumatra Utara"
+                }
+            ]
+        },
+        {
+            "name": "Sulawesi",
+            "data" :[
+                {
+                    "id": "21",
+                    "text": "Gorontalo"
+                },
+                {
+                    "id": "22",
+                    "text": "Sulawesi Barat"
+                },
+                {
+                    "id": "23",
+                    "text": "Sulawesi Selatan"
+                },
+                {
+                    "id": "24",
+                    "text": "Sulawesi Tengah"
+                },
+                {
+                    "id": "25",
+                    "text": "Sulawesi Tenggara"
+                },
+                {
+                    "id": "26",
+                    "text": "Sulawesi Utara"
+                }
+            ]
+        },
+        {
+            "name": "Kalimantan",
+            "data" :[
+                {
+                    "id": "27",
+                    "text": "Kalimantan Barat"
+                },
+                {
+                    "id": "28",
+                    "text": "Kalimantan Selatan"
+                },
+                {
+                    "id": "29",
+                    "text": "Kalimantan Tengah"
+                },
+                {
+                    "id": "30",
+                    "text": "Kalimantan Timur"
+                }
+            ]
+        },
+        {
+            "name": "Nusa Tenggara",
+            "data" :[
+                {
+                    "id": "31",
+                    "text": "Nusa Tenggara Barat"
+                },
+                {
+                    "id": "32",
+                    "text": "Nusa Tenggara Timur"
+                }
+            ]
+        },
+        {
+            "name": "Maluku & Papua",
+            "data" :[
+                {
+                    "id": "33",
+                    "text": "Maluku"
+                },
+                {
+                    "id": "34",
+                    "text": "Maluku Utara"
+                },
+                {
+                    "id": "35",
+                    "text": "Papua"
+                },
+                {
+                    "id": "36",
+                    "text": "Papua Barat"
+                }
+            ]
+        }
     ]
+    
 }

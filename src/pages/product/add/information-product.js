@@ -33,8 +33,7 @@ const WrapText = styled.div`
   }
 `
 
-const Title = styled.p`
-  margin: 0;
+const Title = styled.span`
   font-style: normal;
   font-weight: bold;
   font-size: 18px;

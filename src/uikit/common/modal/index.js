@@ -8,22 +8,36 @@ import theme from '../../common/theme'
  * @param {String} props.title
  * @param {String <any>} props.children
  */
-export default function Modal({ show, onClick, title, children }) {
-  if (!show) {
+export default function Modal({
+  show,
+  onClick,
+  title,
+  children,
+  width,
+}) {
+  const props = {
+    show: show,
+    onClick: onClick,
+    title: title,
+    children: children,
+    width: width || `494px`,
+  }
+
+  if (!props.show) {
     return null
   } else {
     return (
       <React.Fragment>
         <div
           className="bg-filter-modal"
-          onClick={(e) => onClick(e)}
+          onClick={(e) => props.onClick(e)}
         ></div>
         <div className="container-modal">
           <div className="modal-header">
-            <p className="title">{title}</p>
-            <span onClick={(e) => onClick(e)}>&times;</span>
+            <p className="title">{props.title}</p>
+            <span onClick={(e) => props.onClick(e)}>&times;</span>
           </div>
-          <div className="fdn-modal-content">{children}</div>
+          <div className="fdn-modal-content">{props.children}</div>
         </div>
         <style>
           {`
@@ -40,7 +54,7 @@ export default function Modal({ show, onClick, title, children }) {
           .container-modal {
             position: fixed;
             z-index: ${theme.zIndex.modal};
-            width: 494px;
+            width: ${props.width};
             max-height: 520px;
             background: #fff;
             padding: 20px;

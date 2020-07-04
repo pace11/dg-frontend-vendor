@@ -22,7 +22,7 @@ export default function RouterWeb() {
       <Route path="/" exact component={Home} />
       <Route path="/login" exact component={Login} />
       <Route path="/chat" exact component={Chat} />
-      <Route path="/sale" exact component={Sale} />
+      <Route path="/sale/:slug" exact component={Sale} />
       <Route path="/product/add" exact component={AddProduct} />
       <Route path="/product" exact component={ListProduct} />
       <Route path="/ad" exact component={Ad} />

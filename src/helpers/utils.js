@@ -28,7 +28,18 @@ const useQuery = () => {
   return new URLSearchParams(useLocation().search)
 }
 
+/**
+ * @param {Array} arr
+ * @param {String, Number} val
+ * function to get remove array by value
+ */
+const removeArray = (arr, val) => {
+  let newArr = arr.filter((item) => item !== val)
+  return newArr
+}
+
 export default {
   currency: currency,
   useQuery: useQuery,
+  removeArray: removeArray,
 }

@@ -4,6 +4,7 @@ import Section from '../../../uikit/common/section'
 import UploadProduct from './upload-product'
 import InformationProduct from './information-product'
 import DetailProduct from './detail-product'
+import ShippingProduct from './shipping-product'
 
 export default function AddProduct() {
   return (
@@ -12,6 +13,7 @@ export default function AddProduct() {
         <UploadProduct />
         <InformationProduct />
         <DetailProduct />
+        <ShippingProduct />
       </Section>
     </Layout>
   )

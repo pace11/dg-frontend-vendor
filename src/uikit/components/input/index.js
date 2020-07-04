@@ -13,6 +13,12 @@ const Container = styled.div`
     line-height: 21px;
     color: ${Theme.colors.black};
   }
+  div:last-child {
+    font-weight: 300;
+    font-size: 12px;
+    color: ${Theme.colors.gray4};
+    text-align: right;
+  }
   input {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
@@ -57,6 +63,8 @@ export const Text = ({
   label,
   type,
   value,
+  placeholder,
+  caption,
   onChange,
   addOnLeft,
   addOnRight,
@@ -72,8 +80,14 @@ export const Text = ({
       {label && <div>{label}</div>}
       <WrapperInput addOnLeft={addOnLeft} addOnRight={addOnRight}>
         <RenderAddon addOnLeft={addOnLeft} addOnRight={addOnRight} />
-        <input type={type} value={value} onChange={onChange} />
+        <input
+          type={type}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+        />
       </WrapperInput>
+      {caption && <div>{caption}</div>}
     </Container>
   )
 }
