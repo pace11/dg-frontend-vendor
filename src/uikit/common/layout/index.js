@@ -31,6 +31,8 @@ import ContentModalChangeShipping from '../content-modal/modal-change-shipping'
 import ContentModalCanceledOrder from '../content-modal/modal-canceled-order'
 import ContentModalSetShipping from '../content-modal/modal-set-shipping'
 import ContentModalLocationFreeShipping from '../content-modal/modal-location-free-shipping'
+import ContentModalRememberProduct from '../content-modal/modal-remember-product'
+import ContentModalDeleteProduct from '../content-modal/modal-delete-product'
 
 const Content = styled.div`
   position: fixed;
@@ -146,7 +148,10 @@ export default function Layout({ children }) {
             text="Produk Dijual"
             data={[
               { text: 'Tambah Produk', linkTo: '/product/add' },
-              { text: 'Daftar Produk', linkTo: '/product' },
+              {
+                text: 'Daftar Produk',
+                linkTo: '/products/all-product',
+              },
             ]}
           />
           <ListMenu
@@ -274,14 +279,6 @@ export default function Layout({ children }) {
       </Modal>
 
       <Modal
-        show={showModal.canceled_order}
-        onClick={() => HandleModal('canceled_order')}
-        title="Batalkan pesanan"
-      >
-        <ContentModalCanceledOrder />
-      </Modal>
-
-      <Modal
         show={showModal.set_shipping}
         onClick={() => HandleModal('set_shipping')}
         title="Jasa Pengiriman"
@@ -295,6 +292,22 @@ export default function Layout({ children }) {
         width="1200px"
       >
         <ContentModalLocationFreeShipping />
+      </Modal>
+
+      <Modal
+        show={showModal.remember_product}
+        onClick={() => HandleModal('remember_product')}
+        title="Ingatkan Stok"
+      >
+        <ContentModalRememberProduct />
+      </Modal>
+
+      <Modal
+        show={showModal.delete_product}
+        onClick={() => HandleModal('delete_product')}
+        title="Hapus Produk"
+      >
+        <ContentModalDeleteProduct />
       </Modal>
     </React.Fragment>
   )

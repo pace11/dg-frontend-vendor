@@ -24,6 +24,7 @@ export default {
     shimmer_secondary: '#e9e9ed',
   },
   zIndex: {
+    notification: '994',
     header: '996',
     bgModal: '998',
     modal: '999',

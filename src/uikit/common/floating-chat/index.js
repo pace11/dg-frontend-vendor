@@ -38,7 +38,7 @@ const Container = styled.div`
   height: auto;
   right: 10px;
   bottom: 10px;
-  z-index: 999;
+  z-index: 1;
   background: transparent;
 `
 

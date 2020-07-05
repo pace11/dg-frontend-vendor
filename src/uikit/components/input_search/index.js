@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import theme from '../../common/theme'
+import Theme from '../../common/theme'
 import SearchIcon from '../../../assets/icons/Search'
 
 const Container = styled.div`
@@ -17,8 +17,10 @@ const RowInputSearch = styled.div`
     padding: 0px 55px 0px 10px;
     background: transparent;
     letter-spacing: 1.5;
-    border: 1px solid ${theme.colors.gray};
+    border: 1px solid ${Theme.colors.gray5};
     border-radius: 10px;
+    font-style: normal;
+    font-weight: 300;
     font-size: 14px;
     color: #828282;
     -webkit-box-sizing: border-box;
@@ -40,7 +42,7 @@ const RightIcon = styled.div`
   justify-content: center;
   height: 25px;
   width: 40px;
-  border-left: 1px solid black;
+  border-left: 1px solid ${Theme.colors.gray5};
   right: 5px;
   top: 8px;
   cursor: pointer;

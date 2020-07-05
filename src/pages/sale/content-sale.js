@@ -12,12 +12,7 @@ import {
 import { Button, ButtonDropdown } from '../../uikit/components/button'
 import StatusSearch from '../../assets/icons/StatusSearch'
 import Print from '../../assets/icons/Print'
-import Chat from '../../assets/icons/Chat2'
 import Arrow from '../../assets/icons/Arrow2'
-
-const ChatIcon = styled(Chat)`
-  fill: ${Theme.colors.black};
-`
 
 const StatusSearchIcon = styled(StatusSearch)`
   fill: ${Theme.colors.black};
@@ -159,18 +154,19 @@ export default function ContentSale({ handleModal, data }) {
               display="flex"
               justifyContent="space-between"
               margin="10px 0"
+              boxSizing="border-box"
             >
               <Col
                 display="grid"
                 gridTemplateColumns="repeat(4, auto)"
                 gridGap="10px"
               >
-                <Button
+                {/* <Button
                   variant="secondary-outline"
                   onClick={() => alert('chat pembeli')}
                 >
                   <ChatIcon /> Chat Pembeli
-                </Button>
+                </Button> */}
                 <Button
                   variant="secondary-outline"
                   onClick={() => handleModal('status_order')}

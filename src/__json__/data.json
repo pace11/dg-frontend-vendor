@@ -284,6 +284,28 @@
                 }
             ]
         }
+    ],
+    "list_product": [
+        {
+            "product_id": "p0071",
+            "product_name": "Uneed Nylon Kabel Data Micro USB Fast Charging 2.1A - UCBM1",
+            "product_image": "https://res.cloudinary.com/code5/image/upload/v1587578914/dialogue/image-2_wdp32l.png",
+            "seen": 84,
+            "sold": 20,
+            "product_price": 945000,
+            "stok": 54,
+            "checked": false
+        },
+        {
+            "product_id": "p0072",
+            "product_name": "Uneed Nylon Kabel Data Micro USB Fast Charging 2.1A - UCBM1",
+            "product_image": "https://res.cloudinary.com/code5/image/upload/v1587578914/dialogue/image-3_w7olps.png",
+            "seen": 95,
+            "sold": 20,
+            "product_price": 576000,
+            "stok": 54,
+            "checked": false
+        }
     ]
     
 }

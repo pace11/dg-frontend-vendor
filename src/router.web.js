@@ -6,6 +6,7 @@ import Login from './pages/login'
 import Sale from './pages/sale'
 import Chat from './pages/chat'
 import AddProduct from './pages/product/add'
+import EditProduct from './pages/product/edit'
 import ListProduct from './pages/product/list'
 import Ad from './pages/ad'
 import Promotion from './pages/promotion'
@@ -34,7 +35,12 @@ export default function RouterWeb() {
         component={AddProduct}
       />
       <ProtectedRoute
-        path="/product"
+        path="/product/edit"
+        exact={true}
+        component={EditProduct}
+      />
+      <ProtectedRoute
+        path="/products/:slug"
         exact={true}
         component={ListProduct}
       />

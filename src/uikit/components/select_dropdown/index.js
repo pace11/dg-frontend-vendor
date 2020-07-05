@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import OnOutsiceClick from 'react-outclick'
 import Checkbox from '../../components/checkbox'
 import styled from 'styled-components'
@@ -13,7 +14,6 @@ const ArrowIcon = styled(Arrow)`
 const Container = styled.div`
   width: 100%;
   height: auto;
-  padding: 10px 0;
   position: relative;
   font-weight: 300;
   label {
@@ -29,10 +29,14 @@ const Row = styled.div`
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
+  a {
+    text-decoration: none;
+  }
   ${(props) => props};
 `
 
-const StyledText = styled.p`
+const StyledText = styled.span`
+  display: block;
   margin: 0;
   padding: 5px;
   background: ${(props) =>
@@ -46,6 +50,12 @@ const StyledText = styled.p`
         : Theme.colors.white};
     cursor: pointer;
   }
+`
+
+const WrapperIcon = styled.span`
+  width: auto;
+  height: auto;
+  ${(props) => props}
 `
 
 export default function SelectDropdown({
@@ -93,7 +103,9 @@ export default function SelectDropdown({
           onClick={() => setShow(!show)}
         >
           <p>
-            {props.variant !== 'checkbox'
+            {props.variant === 'checkbox'
+              ? props.text
+              : props.variant === 'text'
               ? props.value
                 ? isValue[0].text
                 : '- pilih salah satu -'
@@ -111,9 +123,9 @@ export default function SelectDropdown({
             borderRadius="10px"
             overflow="hidden"
             userSelect="none"
-            zIndex="1"
+            zIndex="999"
           >
-            {props.variant !== 'checkbox'
+            {props.variant === 'text'
               ? props.list.map((item, i) => (
                   <StyledText
                     key={String(i)}
@@ -123,10 +135,45 @@ export default function SelectDropdown({
                     {item.text}
                   </StyledText>
                 ))
-              : props.list.map((item, i) => (
-                  <StyledText key={String(i)}>
-                    <Checkbox label={item.text} />
+              : props.variant === 'checkbox'
+              ? props.list.map((item, i) => (
+                  <StyledText
+                    key={String(i)}
+                    onClick={() => HandleClick(item.value)}
+                    isSelected={
+                      props.value.includes(item.value) ? true : false
+                    }
+                  >
+                    <Checkbox
+                      checked={
+                        props.value.includes(item.value)
+                          ? true
+                          : false
+                      }
+                      label={item.text}
+                    />
                   </StyledText>
+                ))
+              : props.list.map((item, i) => (
+                  <Link
+                    key={String(i)}
+                    to={item.linkTo ? `${item.linkTo}` : `#`}
+                  >
+                    <StyledText
+                      onClick={() => HandleClick(item.value)}
+                    >
+                      <Row
+                        display="flex"
+                        alignItems="center"
+                        padding="0 10px"
+                      >
+                        <WrapperIcon marginRight="10px">
+                          {item.icon}
+                        </WrapperIcon>{' '}
+                        {item.text}
+                      </Row>
+                    </StyledText>
+                  </Link>
                 ))}
           </Row>
         )}

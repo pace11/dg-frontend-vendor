@@ -14,6 +14,8 @@ const ModalGlobal = {
     canceled_order: false,
     set_shipping: false,
     location_free_shipping: false,
+    remember_product: false,
+    delete_product: false,
   },
 
   fetchAction: action((state, payload) => {
