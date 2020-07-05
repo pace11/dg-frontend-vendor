@@ -1,4 +1,20 @@
 {
+    "homepage" : {
+        "important": {
+            "new_order": 1,
+            "process_order": 1,
+            "sent_order": 1,
+            "chat_unread": 1,
+            "empty_product": 1
+        },
+        "performance": {
+            "percantage_reply_msg": "100%",
+            "speed_reply_msg": 100,
+            "speed_delivery_prod": 1,
+            "total_order": 100,
+            "total_visitor": 1000
+        }
+    },
     "list_sale": [
         {
             "order_status": false,

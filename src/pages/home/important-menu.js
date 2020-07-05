@@ -81,7 +81,7 @@ const TitlePromo = styled.p`
   font-size: 16px;
 `
 
-export default function ImportantMenu() {
+export default function ImportantMenu({ data }) {
   return (
     <React.Fragment>
       <ContainerMenu>
@@ -94,23 +94,23 @@ export default function ImportantMenu() {
         <Content cols={5}>
           <Item>
             <small>Pesanan Baru</small>
-            <p>0</p>
+            <p>{data.important.new_order}</p>
           </Item>
           <Item>
             <small>Pesanan Diproses</small>
-            <p>0</p>
+            <p>{data.important.process_order}</p>
           </Item>
           <Item>
             <small>Pesanan Telah Dikirim</small>
-            <p>0</p>
+            <p>{data.important.sent_order}</p>
           </Item>
           <Item>
             <small>Chat Belum Dibaca</small>
-            <p>0</p>
+            <p>{data.important.chat_unread}</p>
           </Item>
           <Item>
             <small>Produk Habis</small>
-            <p>0</p>
+            <p>{data.important.empty_product}</p>
           </Item>
         </Content>
       </ContainerMenu>
@@ -122,23 +122,23 @@ export default function ImportantMenu() {
         <Content cols={5}>
           <Item>
             <small>Kecepatan Membalas Chat</small>
-            <p>0</p>
+            <p>{data.performance.speed_reply_msg}</p>
           </Item>
           <Item>
             <small>Persentase Membalas Chat</small>
-            <p>0</p>
+            <p>{data.performance.percantage_reply_msg}</p>
           </Item>
           <Item>
             <small>Kecepatan Pengiriman Pesanan</small>
-            <p>0</p>
+            <p>{data.performance.speed_delivery_prod}</p>
           </Item>
           <Item>
             <small>Jumlah Pesanan</small>
-            <p>0</p>
+            <p>{data.performance.total_order}</p>
           </Item>
           <Item>
             <small>Total Pengunjung</small>
-            <p>0</p>
+            <p>{data.performance.total_visitor}</p>
           </Item>
         </Content>
       </ContainerMenu>
