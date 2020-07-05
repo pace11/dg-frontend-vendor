@@ -10,7 +10,7 @@ const Container = styled.div`
   border: ${(props) =>
     props.isSelected
       ? `1px solid ${Theme.colors.orange}`
-      : `1px solid ${Theme.colors.gray}`};
+      : `1px solid ${Theme.colors.gray5}`};
   user-select: none;
   cursor: pointer;
   border-radius: 10px;

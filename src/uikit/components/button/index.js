@@ -133,9 +133,10 @@ const RowList = styled.div`
     padding: 5px 10px;
   }
   p:hover {
-    background: ${Theme.colors.pink};
+    background: ${Theme.colors.orangeSoft2};
     cursor: pointer;
   }
+  z-index: 1;
 `
 
 export const Button = ({
