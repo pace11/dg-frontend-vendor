@@ -1,3 +1,5 @@
 # this is environment to staging
 REACT_APP_MODE={{key "services/dfe/web-vendor/main-config/app-mode"}}
 REACT_APP_API_URL={{key "services/dfe/web-vendor/main-config/app-api-url"}}
+REACT_APP_API_URL_HOMEPAGE={{key "services/dfe/web-vendor/main-config/app-api-url-homepage"}}
+REACT_APP_API_URL_MOCK_HOMEPAGE={{key "services/dfe/web-vendor/main-config/app-api-url-mock-homepage"}}
