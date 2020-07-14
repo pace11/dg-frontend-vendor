@@ -48,6 +48,7 @@ export default function ModalChangeShipping() {
       >
         <SelectDropdown
           label="Jasa Pengiriman"
+          text="Pilih jasa pengiriman"
           value={textSelect.shipping}
           onClick={(e) => HandleClick('shipping', e)}
           list={[
@@ -57,6 +58,7 @@ export default function ModalChangeShipping() {
         />
         <SelectDropdown
           label="Paket Pengiriman"
+          text="Pilih Service"
           value={textSelect.shipping_packages}
           onClick={(e) => HandleClick('shipping_packages', e)}
           list={[

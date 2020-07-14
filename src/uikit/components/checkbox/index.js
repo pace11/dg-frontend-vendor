@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import theme from '../../../uikit/common/theme'
+import Theme from '../../../uikit/common/theme'
 import CheckIcon from '../../../assets/icons/Check'
 
 const Container = styled.div`
@@ -21,7 +21,7 @@ const CheckBox = styled.span`
   min-width: 20px;
   height: 20px;
   background: ${(props) =>
-    props.checked ? theme.colors.orange2 : '#fff'};
+    props.checked ? Theme.colors.orange2 : '#fff'};
   -webkit-box-shadow: inset 0px 0px 0px
     ${(props) => (props.checked ? '0px' : '2px #cbcbd2')};
   -moz-box-shadow: inset 0px 0px 0px
@@ -35,6 +35,7 @@ const StyledCheckIcon = styled(CheckIcon)`
   position: absolute;
   top: 5px;
   left: 3px;
+  fill: ${Theme.colors.white};
 `
 
 const LabelCheckbox = styled.span`

@@ -8,7 +8,7 @@ const Container = styled.div`
 `
 
 const RowImage = styled.div`
-  width: 180px;
+  width: 100%;
   min-height: 146px;
   background-image: url(${(props) =>
     props.imageUrl
@@ -24,7 +24,7 @@ const RowImage = styled.div`
 `
 
 const RowImageMain = styled.div`
-  width: 237px;
+  width: 100%;
   min-height: 146px;
   background-image: url(${(props) =>
     props.imageUrl
@@ -43,7 +43,7 @@ const TitleMain = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 237px;
+  width: 100%;
   height: 40px;
   background: ${Theme.colors.orange};
   border: 1px solid ${Theme.colors.orange};

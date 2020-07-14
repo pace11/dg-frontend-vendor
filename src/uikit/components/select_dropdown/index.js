@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import OnOutsiceClick from 'react-outclick'
+import OnOutsideClick from 'react-outclick'
 import Checkbox from '../../components/checkbox'
 import styled from 'styled-components'
 import Theme from '../../common/theme'
@@ -84,10 +84,14 @@ export default function SelectDropdown({
     props.onClick(e)
   }
 
+  const HandleClickCheckbox = (e) => {
+    props.onClick(e)
+  }
+
   return (
     <Container>
       {props.label && <label>{props.label}</label>}
-      <OnOutsiceClick onOutsideClick={() => setShow(false)}>
+      <OnOutsideClick onOutsideClick={() => setShow(false)}>
         <Row
           display="flex"
           height="41px"
@@ -108,7 +112,7 @@ export default function SelectDropdown({
               : props.variant === 'text'
               ? props.value
                 ? isValue[0].text
-                : '- pilih salah satu -'
+                : props.text
               : props.text}
           </p>
           <ArrowIcon show={JSON.stringify(show)} />
@@ -139,7 +143,7 @@ export default function SelectDropdown({
               ? props.list.map((item, i) => (
                   <StyledText
                     key={String(i)}
-                    onClick={() => HandleClick(item.value)}
+                    onClick={() => HandleClickCheckbox(item.value)}
                     isSelected={
                       props.value.includes(item.value) ? true : false
                     }
@@ -177,7 +181,7 @@ export default function SelectDropdown({
                 ))}
           </Row>
         )}
-      </OnOutsiceClick>
+      </OnOutsideClick>
     </Container>
   )
 }
