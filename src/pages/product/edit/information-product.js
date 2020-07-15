@@ -83,7 +83,8 @@ export default function InformationProduct() {
         </WrapText>
         <SelectDropdown
           variant="text"
-          label="Nama Produk"
+          label="Kategori"
+          text="Pilih Kategori"
           value={data.product_category}
           onClick={(e) => HandleChange('product_category', e)}
           list={[

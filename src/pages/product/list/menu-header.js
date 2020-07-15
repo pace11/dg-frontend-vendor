@@ -118,8 +118,9 @@ export default function MenuHeader({ slug }) {
           ]}
         />
         <Selectdropdown
-        variant="text"
+          variant="text"
           value={filter.sorting}
+          text="Urutkan"
           onClick={(e) => HandleSorting('sorting', e)}
           list={[
             { text: 'Terakhir Diubah', value: 's1' },

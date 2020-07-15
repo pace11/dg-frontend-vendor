@@ -17,6 +17,8 @@ import Review from './pages/reviews'
 import Customer from './pages/customer'
 import AdminSetting from './pages/admin/setting'
 import ReceiptPrint from './pages/print/receipt'
+import AddDistributor from './pages/distributor-seller/add'
+import StockProduct from './pages/distributor-seller/stock-product'
 
 export default function RouterWeb() {
   return (
@@ -24,6 +26,16 @@ export default function RouterWeb() {
       <Route path="/login" exact component={Login} />
       <ProtectedRoute path="/" exact={true} component={Home} />
       <ProtectedRoute path="/chat" exact={true} component={Chat} />
+      <ProtectedRoute
+        path="/distributor/add"
+        exact={true}
+        component={AddDistributor}
+      />
+      <ProtectedRoute
+        path="/distributor/stock-product"
+        exact={true}
+        component={StockProduct}
+      />
       <ProtectedRoute
         path="/sale/:slug"
         exact={true}

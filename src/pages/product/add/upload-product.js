@@ -105,10 +105,9 @@ export default function UploadProduct() {
         </StyledList>
       </Row>
       <Row
-        display="flex"
-        alignItems="flex-start"
-        justifyContent="space-between"
-        gridGap="20px"
+        display="grid"
+        gridTemplateColumns="3fr 2fr 2fr 2fr 2fr"
+        gridGap="25px"
         padding="30px 0"
       >
         <ImageMain

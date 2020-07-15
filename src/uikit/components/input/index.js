@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Theme from '../../common/theme'
 import EyeIcon from '../../../assets/icons/Eye'
+import Check from '../../../assets/icons/Check'
 
 const Container = styled.div`
   width: 100%;
@@ -9,16 +10,17 @@ const Container = styled.div`
   padding: 10px 0;
   div {
     font-style: normal;
-    font-weight: normal;
+    font-weight: 300;
     font-size: 14px;
     line-height: 21px;
-    color: ${Theme.colors.black};
+    color: ${Theme.colors.gray4};
   }
   div:last-child {
     font-weight: 300;
     font-size: 12px;
-    color: ${Theme.colors.gray4};
-    text-align: right;
+    color: ${(props) =>
+      props.warning ? Theme.colors.red : Theme.colors.gray4};
+    text-align: ${(props) => (props.warning ? `left` : `right`)};
   }
   input {
     font-family: 'Poppins', sans-serif;
@@ -30,7 +32,9 @@ const Container = styled.div`
     color: ${Theme.colors.gray4};
     background: transparent;
     box-sizing: border-box;
-    border: 1px solid ${Theme.colors.gray5};
+    border: 1px solid
+      ${(props) =>
+        props.warning ? Theme.colors.red : Theme.colors.gray5};
     border-radius: 10px;
     ${(props) =>
       props.addOnRight
@@ -79,6 +83,16 @@ const WrapperIcon = styled.span`
   }
 `
 
+const VerifiedIcon = styled.span`
+  position: absolute;
+  top: 0px;
+  right: -15px;
+  svg {
+    transform: scale(1.2);
+    fill: ${Theme.colors.green};
+  }
+`
+
 export const Text = ({
   label,
   type,
@@ -88,6 +102,8 @@ export const Text = ({
   onChange,
   addOnLeft,
   addOnRight,
+  warning,
+  verified,
 }) => {
   const RenderAddon = (props) => {
     if (props.addOnLeft || props.addOnRight)
@@ -96,7 +112,11 @@ export const Text = ({
   }
 
   return (
-    <Container addOnLeft={addOnLeft} addOnRight={addOnRight}>
+    <Container
+      addOnLeft={addOnLeft}
+      addOnRight={addOnRight}
+      warning={warning}
+    >
       {label && <div>{label}</div>}
       <WrapperInput addOnLeft={addOnLeft} addOnRight={addOnRight}>
         <RenderAddon addOnLeft={addOnLeft} addOnRight={addOnRight} />
@@ -106,8 +126,14 @@ export const Text = ({
           onChange={onChange}
           placeholder={placeholder}
         />
+        {verified && (
+          <VerifiedIcon>
+            <Check />
+          </VerifiedIcon>
+        )}
       </WrapperInput>
       {caption && <div>{caption}</div>}
+      {warning && <div>{warning}</div>}
     </Container>
   )
 }

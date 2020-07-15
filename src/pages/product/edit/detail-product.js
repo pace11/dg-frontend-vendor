@@ -136,6 +136,7 @@ export default function DetailProduct() {
           <Col padding="10px 0">
             <SelectDropdown
               variant="text"
+              text="Satuan"
               value={data.unit}
               onClick={(e) => HandleChange('unit', e)}
               list={[

@@ -2,23 +2,14 @@ import React from 'react'
 import { useStoreDispatch, useStoreState } from 'easy-peasy'
 import styled, { keyframes } from 'styled-components'
 import { useTranslation } from 'react-i18next'
-import Header from '../header'
-import SidebarMenu from '../sidebar-menu'
+
 import ListMenu from '../../components/list_menu'
-import {
-  Home,
-  Chat,
-  Sale,
-  ProductNote,
-  Ad,
-  StoreDisplay,
-  Statistic,
-  Review,
-  CustomerCare,
-  Setting,
-} from '../../../assets/icons'
 import FloatingChat from '../../common/floating-chat'
 import Modal from '../../common/modal'
+
+import Header from '../header'
+import SidebarMenu from '../sidebar-menu'
+
 import ContentModalStatusOrder from '../content-modal/modal-status-order'
 import ContentModalRejectOrder from '../content-modal/modal-reject-order'
 import ContentModalAcceptOrder from '../content-modal/modal-accept-order'
@@ -33,6 +24,18 @@ import ContentModalSetShipping from '../content-modal/modal-set-shipping'
 import ContentModalLocationFreeShipping from '../content-modal/modal-location-free-shipping'
 import ContentModalRememberProduct from '../content-modal/modal-remember-product'
 import ContentModalDeleteProduct from '../content-modal/modal-delete-product'
+
+import Home from '../../../assets/icons/Home'
+import Chat from '../../../assets/icons/Chat'
+import Sale from '../../../assets/icons/Sale'
+import ProductNote from '../../../assets/icons/ProductNote'
+// import Ad from '../../../assets/icons/Ad'
+// import StoreDisplay from '../../../assets/icons/StoreDisplay'
+// import Statistic from '../../../assets/icons/Statistic'
+// import Review from '../../../assets/icons/Review'
+// import CustomerCare from '../../../assets/icons/CustomerCare'
+import Setting from '../../../assets/icons/Setting'
+import Group from '../../../assets/icons/Group'
 
 const Content = styled.div`
   position: fixed;
@@ -156,6 +159,18 @@ export default function Layout({ children }) {
           />
           <ListMenu
             elementId=""
+            icon={<Group />}
+            text="Distributor & Seller"
+            data={[
+              { text: 'Daftar', linkTo: '/distributor/add' },
+              {
+                text: 'Stok Product',
+                linkTo: '/distributor/stock-product',
+              },
+            ]}
+          />
+          {/* <ListMenu
+            elementId=""
             icon={<Ad />}
             text="Iklan & Promosi"
             data={[
@@ -176,21 +191,21 @@ export default function Layout({ children }) {
             text="Data Statistik"
             linkTo="/statistic"
             notification={0}
-          />
-          <ListMenu
+          /> */}
+          {/* <ListMenu
             elementId=""
             icon={<Review />}
             text="Ulasan Pembeli"
             linkTo="/review"
             notification={0}
-          />
-          <ListMenu
+          /> */}
+          {/* <ListMenu
             elementId="cs"
             icon={<CustomerCare />}
             text="Customer Care"
             linkTo="/customer"
             notification={0}
-          />
+          /> */}
           <ListMenu
             elementId=""
             icon={<Setting />}
@@ -277,7 +292,6 @@ export default function Layout({ children }) {
       >
         <ContentModalCanceledOrder />
       </Modal>
-
       <Modal
         show={showModal.set_shipping}
         onClick={() => HandleModal('set_shipping')}
@@ -293,7 +307,6 @@ export default function Layout({ children }) {
       >
         <ContentModalLocationFreeShipping />
       </Modal>
-
       <Modal
         show={showModal.remember_product}
         onClick={() => HandleModal('remember_product')}
@@ -301,7 +314,6 @@ export default function Layout({ children }) {
       >
         <ContentModalRememberProduct />
       </Modal>
-
       <Modal
         show={showModal.delete_product}
         onClick={() => HandleModal('delete_product')}

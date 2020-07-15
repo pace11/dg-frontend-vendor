@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 import Cookies from 'js-cookie'
 import ImageBg from '../../assets/svg/onboarding.svg'
-import Header from '../../uikit/common/header-clear'
 import { Button } from '../../uikit/components/button'
 import { Text, Password } from '../../uikit/components/input'
 
@@ -14,7 +13,6 @@ const Container = styled.div`
   background-image: url(${ImageBg});
   background-repeat: no-repeat;
   background-size: cover;
-  margin: 140px 0 0 0;
 `
 
 const FormLogin = styled.div`
@@ -67,41 +65,38 @@ function Login() {
   }
 
   return (
-    <React.Fragment>
-      <Header />
-      <Container>
-        <FormLogin>
-          <Row>
-            <h4>Masuk</h4>
-          </Row>
-          <Text
-            label="Nomor Handphone atau Email"
-            placeholder="Masukkan nomor ponsel/email"
-            onChange={(e) => HandleChange('username', e)}
-          />
-          <Password
-            label="Kata Sandi"
-            placeholder="Masukkan kata sandi"
-            onChange={(e) => HandleChange('password', e)}
-          />
-          <Row
-            display="flex"
-            justifyContent="flex-end"
-            padding="20px 0"
-          >
-            <div style={{ width: '200px' }}>
-              <Button
-                variant="primary-orange"
-                block
-                onClick={() => HandleSubmit()}
-              >
-                Masuk
-              </Button>
-            </div>
-          </Row>
-        </FormLogin>
-      </Container>
-    </React.Fragment>
+    <Container>
+      <FormLogin>
+        <Row>
+          <h4>Masuk</h4>
+        </Row>
+        <Text
+          label="Nomor Handphone atau Email"
+          placeholder="Masukkan nomor ponsel/email"
+          onChange={(e) => HandleChange('username', e)}
+        />
+        <Password
+          label="Kata Sandi"
+          placeholder="Masukkan kata sandi"
+          onChange={(e) => HandleChange('password', e)}
+        />
+        <Row
+          display="flex"
+          justifyContent="flex-end"
+          padding="20px 0"
+        >
+          <div style={{ width: '200px' }}>
+            <Button
+              variant="primary-orange"
+              block
+              onClick={() => HandleSubmit()}
+            >
+              Masuk
+            </Button>
+          </div>
+        </Row>
+      </FormLogin>
+    </Container>
   )
 }
 
