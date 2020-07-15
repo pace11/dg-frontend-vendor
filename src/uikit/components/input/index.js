@@ -10,10 +10,10 @@ const Container = styled.div`
   padding: 10px 0;
   div {
     font-style: normal;
-    font-weight: normal;
+    font-weight: 300;
     font-size: 14px;
     line-height: 21px;
-    color: ${Theme.colors.black};
+    color: ${Theme.colors.gray4};
   }
   div:last-child {
     font-weight: 300;

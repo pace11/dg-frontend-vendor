@@ -322,6 +322,48 @@
             "stok": 54,
             "checked": false
         }
+    ],
+    "distributor_list": [
+        {
+            "distributor_name":"PT. Kurnia Makmur Sentosa",
+            "distributor_location": "Bandung",
+            "distributor_role": "Distributor",
+            "information_other": {
+                "name_shop": "Samsung Indonesia",
+                "email_shop": "samsung@indonesia.com",
+                "phone": "0822789327654"
+            }
+        },
+        {
+            "distributor_name":"CV. Maju Jaya Abadi",
+            "distributor_location": "Jakarta",
+            "distributor_role": "Distributor",
+            "information_other": {
+                "name_shop": "Samsung Official",
+                "email_shop": "officialsamsung@gmail.com",
+                "phone": "082198321281"
+            }
+        },
+        {
+            "distributor_name":"Andreas Kurnia",
+            "distributor_location": "Tangerang Selatan",
+            "distributor_role": "Seller",
+            "information_other": {
+                "name_shop": "Celular Shop",
+                "email_shop": "celularshop@gmail.com",
+                "phone": "082198321281"
+            }
+        },
+        {
+            "distributor_name":"Sarah Kijangyanto",
+            "distributor_location": "Surabaya",
+            "distributor_role": "Seller",
+            "information_other": {
+                "name_shop": "Phone Shop",
+                "email_shop": "phoneshop@gmail.com",
+                "phone": "082198321281"
+            }
+        }
     ]
     
 }

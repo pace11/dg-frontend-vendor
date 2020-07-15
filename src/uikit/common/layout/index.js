@@ -292,7 +292,6 @@ export default function Layout({ children }) {
       >
         <ContentModalCanceledOrder />
       </Modal>
-
       <Modal
         show={showModal.set_shipping}
         onClick={() => HandleModal('set_shipping')}
@@ -308,7 +307,6 @@ export default function Layout({ children }) {
       >
         <ContentModalLocationFreeShipping />
       </Modal>
-
       <Modal
         show={showModal.remember_product}
         onClick={() => HandleModal('remember_product')}
@@ -316,7 +314,6 @@ export default function Layout({ children }) {
       >
         <ContentModalRememberProduct />
       </Modal>
-
       <Modal
         show={showModal.delete_product}
         onClick={() => HandleModal('delete_product')}

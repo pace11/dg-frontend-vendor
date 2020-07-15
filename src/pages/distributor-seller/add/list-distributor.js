@@ -4,6 +4,10 @@ import Theme from '../../../uikit/common/theme'
 import Selectdropdown from '../../../uikit/components/select_dropdown'
 import { Button } from '../../../uikit/components/button'
 import InputSearch from '../../../uikit/components/input_search'
+import dataJson from '../../../__json__/data.json'
+
+import EditIcon from '../../../assets/icons/Edit'
+import RemoveIcon from '../../../assets/icons/Close'
 
 const Container = styled.div`
   background: #ffffff;
@@ -39,7 +43,20 @@ const StyledList = styled.div`
   padding: 0 15px;
 `
 
-export default function ListDistributor() {
+const StyledText = styled.span`
+  display: block;
+  color: ${Theme.colors.gray};
+  ${(props) => props};
+`
+
+const WrapperIcon = styled.span`
+  display: flex;
+  align-items: center;
+  width: 25px;
+`
+
+export default function ListDistributor({ HandleModal }) {
+  const { distributor_list } = dataJson
   const [filter, setFilter] = useState({
     role: [],
     region: [],
@@ -84,7 +101,10 @@ export default function ListDistributor() {
         </StyledList>
       </Row>
       <Row padding="20px 0">
-        <Button variant="primary-orange">
+        <Button
+          variant="primary-orange"
+          onClick={() => HandleModal('add_distributor_seller')}
+        >
           + Tambah Distributor/Seller{' '}
         </Button>
       </Row>
@@ -137,6 +157,82 @@ export default function ListDistributor() {
           />
         </Col>
       </Row>
+      <Row
+        display="grid"
+        gridTemplateColumns="35% 15% 25% 25%"
+        margin="20px 0 0 0"
+        padding="10px 0"
+        borderTop={`1px solid ${Theme.colors.gray5}`}
+        color={Theme.colors.gray}
+      >
+        <Col>Nama</Col>
+        <Col>Peran</Col>
+        <Col>Informasi Lainnya</Col>
+        <Col>Aksi</Col>
+      </Row>
+      {distributor_list.map((item, i) => (
+        <Row
+          key={String(i)}
+          display="grid"
+          gridTemplateColumns="35% 15% 25% 25%"
+          padding="10px 0"
+          borderTop={`1px solid ${Theme.colors.gray5}`}
+        >
+          <Col>
+            <StyledText fontWeight="normal" fontSize="14px">
+              {item.distributor_name}
+            </StyledText>
+            <StyledText fontWeight="normal" fontSize="12px">
+              {item.distributor_location}
+            </StyledText>
+          </Col>
+          <Col>
+            <StyledText fontWeight="normal" fontSize="14px">
+              {item.distributor_role}
+            </StyledText>
+          </Col>
+          <Col>
+            <StyledText fontWeight="normal" fontSize="14px">
+              {item.information_other.name_shop}
+            </StyledText>
+            <StyledText fontWeight="normal" fontSize="12px">
+              {item.information_other.email_shop}
+            </StyledText>
+            <StyledText fontWeight="normal" fontSize="12px">
+              {item.information_other.phone}
+            </StyledText>
+          </Col>
+          <Col>
+            <StyledText
+              display="flex"
+              alignItems="center"
+              fontSize="14px"
+              fontWeight="normal"
+              cursor="pointer"
+              onClick={() =>
+                HandleModal('edit_distributor_seller', i)
+              }
+            >
+              <WrapperIcon>
+                <EditIcon />
+              </WrapperIcon>
+              Ubah
+            </StyledText>
+            <StyledText
+              display="flex"
+              alignItems="center"
+              fontSize="14px"
+              fontWeight="normal"
+              cursor="pointer"
+            >
+              <WrapperIcon>
+                <RemoveIcon style={{ fill: `${Theme.colors.red}` }} />
+              </WrapperIcon>
+              Nonaktifkan
+            </StyledText>
+          </Col>
+        </Row>
+      ))}
     </Container>
   )
 }
