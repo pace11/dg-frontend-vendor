@@ -212,7 +212,7 @@ export default function Layout({ children }) {
             text="Pengaturan"
             notification={0}
             data={[
-              { text: 'Atur Toko', linkTo: '/store/setting' },
+              { text: 'Atur Toko', linkTo: '/setting/store' },
               { text: 'Atur Admin', linkTo: '/admin/setting' },
             ]}
           />
