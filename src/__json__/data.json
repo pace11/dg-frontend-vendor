@@ -325,6 +325,7 @@
     ],
     "distributor_list": [
         {
+            "distributor_id": "dis0021",
             "distributor_name":"PT. Kurnia Makmur Sentosa",
             "distributor_location": "Bandung",
             "distributor_role": "Distributor",
@@ -335,6 +336,7 @@
             }
         },
         {
+            "distributor_id": "dis0022",
             "distributor_name":"CV. Maju Jaya Abadi",
             "distributor_location": "Jakarta",
             "distributor_role": "Distributor",
@@ -345,6 +347,7 @@
             }
         },
         {
+            "distributor_id": "dis0023",
             "distributor_name":"Andreas Kurnia",
             "distributor_location": "Tangerang Selatan",
             "distributor_role": "Seller",
@@ -355,6 +358,7 @@
             }
         },
         {
+            "distributor_id": "dis0024",
             "distributor_name":"Sarah Kijangyanto",
             "distributor_location": "Surabaya",
             "distributor_role": "Seller",

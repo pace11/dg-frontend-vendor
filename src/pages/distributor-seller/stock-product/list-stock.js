@@ -151,7 +151,9 @@ export default function ListDistributor({ HandleModal }) {
           display="grid"
           gridTemplateColumns="35% 20% 20% 20% 5%"
           padding="10px 0"
+          cursor="pointer"
           borderTop={`1px solid ${Theme.colors.gray5}`}
+          onClick={() => HandleModal(item.distributor_id)}
         >
           <Col>
             <StyledText fontWeight="normal" fontSize="14px">
