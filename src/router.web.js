@@ -10,7 +10,6 @@ import EditProduct from './pages/product/edit'
 import ListProduct from './pages/product/list'
 import Ad from './pages/ad'
 import Promotion from './pages/promotion'
-import StoreDisplay from './pages/store/display'
 import SettingStore from './pages/setting/store'
 import Statistic from './pages/statistic'
 import Review from './pages/reviews'
@@ -67,11 +66,6 @@ export default function RouterWeb() {
         path="/promotion"
         exact={true}
         component={Promotion}
-      />
-      <ProtectedRoute
-        path="/store/display"
-        exact={true}
-        component={StoreDisplay}
       />
       <ProtectedRoute
         path="/setting/store"

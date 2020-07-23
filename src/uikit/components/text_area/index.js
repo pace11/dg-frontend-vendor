@@ -29,7 +29,7 @@ const Container = styled.div`
   p {
     margin: 0;
     padding: 0;
-    text-align: right;
+    text-align: ${(props) => (props.showLimit ? `right` : `left`)};
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
@@ -47,24 +47,46 @@ const Container = styled.div`
  * @param {String} props.charLength
  * @param {Function} props.onChange
  */
-function TextArea({ label, maxLength, rows, charLength, onChange }) {
+function TextArea({
+  label,
+  maxLength,
+  rows,
+  charLength,
+  onChange,
+  showLimit,
+  caption,
+}) {
+  const props = {
+    label: label,
+    maxLength: maxLength || 100,
+    rows: rows || 2,
+    charLength: charLength || 0,
+    onChange: onChange,
+    showLimit: showLimit || false,
+    caption: caption,
+  }
+
   return (
-    <Container charLength={charLength} maxLength={maxLength}>
-      {label && <div>{label}</div>}
+    <Container
+      charLength={props.charLength}
+      maxLength={props.maxLength}
+      showLimit={props.showLimit}
+      caption={props.caption}
+    >
+      {props.label && <div>{props.label}</div>}
       <textarea
-        maxLength={maxLength}
-        onChange={onChange}
-        rows={rows}
+        maxLength={props.maxLength}
+        onChange={props.onChange}
+        rows={props.rows}
       />
-      <p>{`${charLength} / ${maxLength}`}</p>
+      {props.showLimit && (
+        <p>{`${props.charLength} / ${props.maxLength}`}</p>
+      )}
+      {props.caption && (
+        <p>{`${props.caption} (Maksimum 100 Karakter).`}</p>
+      )}
     </Container>
   )
-}
-
-TextArea.defaultProps = {
-  maxLength: 100,
-  charLength: 0,
-  rows: 2,
 }
 
 export default TextArea

@@ -97,6 +97,7 @@ export default function Modal({
             width: 100%;
             max-height: 490px;
             overflow-y: scroll;
+            scroll-padding-right: 50px;
           }
           @keyframes animatezoom {
             from {

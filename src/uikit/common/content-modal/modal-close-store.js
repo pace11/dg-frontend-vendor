@@ -92,6 +92,7 @@ export default function ModalCloseStore({ handleBack }) {
           value={data.note}
           onChange={(e) => HandleChange('note', e)}
           charLength={charLength}
+          showLimit
         />
       </Row>
       <WrapperButton>

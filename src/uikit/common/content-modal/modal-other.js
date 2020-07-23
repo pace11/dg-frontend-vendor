@@ -79,6 +79,7 @@ export default function ModalOther({ handleBack }) {
           value={note}
           onChange={(e) => HandleChange(e)}
           charLength={charLength}
+          showLimit
         />
       </Row>
       <WrapperButton>
