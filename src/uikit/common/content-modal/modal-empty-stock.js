@@ -81,6 +81,7 @@ export default function ModalEmptyStock({ handleBack }) {
           value={note}
           onChange={(e) => HandleChange(e)}
           charLength={charLength}
+          showLimit
         />
       </Row>
       <WrapperButton>

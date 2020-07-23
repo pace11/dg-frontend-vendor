@@ -108,6 +108,7 @@ export default function DetailProduct() {
           onChange={(e) => HandleChange('description', e)}
           maxLength={2000}
           charLength={data.charlength}
+          showLimit
         />
       </Row>
       <Row display="grid" gridTemplateColumns="repeat(2, 1fr)">

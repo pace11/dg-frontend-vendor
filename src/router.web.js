@@ -10,8 +10,7 @@ import EditProduct from './pages/product/edit'
 import ListProduct from './pages/product/list'
 import Ad from './pages/ad'
 import Promotion from './pages/promotion'
-import StoreDisplay from './pages/store/display'
-import StoreSetting from './pages/store/setting'
+import SettingStore from './pages/setting/store'
 import Statistic from './pages/statistic'
 import Review from './pages/reviews'
 import Customer from './pages/customer'
@@ -19,6 +18,12 @@ import AdminSetting from './pages/admin/setting'
 import ReceiptPrint from './pages/print/receipt'
 import AddDistributor from './pages/distributor-seller/add'
 import StockProduct from './pages/distributor-seller/stock-product'
+import StoreAccountBank from './pages/setting/store/all-menu/account-bank'
+import StoreAddress from './pages/setting/store/all-menu/address'
+import StoreNotification from './pages/setting/store/all-menu/notification'
+import StoreShipping from './pages/setting/store/all-menu/shipping'
+import StoreNStore from './pages/setting/store/all-menu/store'
+import StoreTemplateChat from './pages/setting/store/all-menu/template-chat'
 
 export default function RouterWeb() {
   return (
@@ -63,14 +68,39 @@ export default function RouterWeb() {
         component={Promotion}
       />
       <ProtectedRoute
-        path="/store/display"
+        path="/setting/store"
         exact={true}
-        component={StoreDisplay}
+        component={SettingStore}
       />
       <ProtectedRoute
-        path="/store/setting"
+        path="/setting/store/bank"
         exact={true}
-        component={StoreSetting}
+        component={StoreAccountBank}
+      />
+      <ProtectedRoute
+        path="/setting/store/address"
+        exact={true}
+        component={StoreAddress}
+      />
+      <ProtectedRoute
+        path="/setting/store/notification"
+        exact={true}
+        component={StoreNotification}
+      />
+      <ProtectedRoute
+        path="/setting/store/shipping"
+        exact={true}
+        component={StoreShipping}
+      />
+      <ProtectedRoute
+        path="/setting/store/store"
+        exact={true}
+        component={StoreNStore}
+      />
+      <ProtectedRoute
+        path="/setting/store/template-chat"
+        exact={true}
+        component={StoreTemplateChat}
       />
       <ProtectedRoute
         path="/statistic"

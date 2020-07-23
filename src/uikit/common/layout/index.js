@@ -4,7 +4,7 @@ import styled, { keyframes } from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
 import ListMenu from '../../components/list_menu'
-import FloatingChat from '../../common/floating-chat'
+// import FloatingChat from '../../common/floating-chat'
 import Modal from '../../common/modal'
 
 import Header from '../header'
@@ -212,14 +212,14 @@ export default function Layout({ children }) {
             text="Pengaturan"
             notification={0}
             data={[
-              { text: 'Atur Toko', linkTo: '/store/setting' },
+              { text: 'Atur Toko', linkTo: '/setting/store' },
               { text: 'Atur Admin', linkTo: '/admin/setting' },
             ]}
           />
         </SidebarMenu>
         <CenterContent>{children}</CenterContent>
       </Content>
-      <FloatingChat />
+      {/* <FloatingChat /> */}
       <Modal
         show={showModal.status_order}
         onClick={() => HandleModal('status_order')}

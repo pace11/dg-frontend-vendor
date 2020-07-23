@@ -65,6 +65,7 @@ export default function SelectDropdown({
   value,
   list,
   onClick,
+  autoWidth,
 }) {
   const props = {
     variant: variant,
@@ -73,6 +74,7 @@ export default function SelectDropdown({
     value: value,
     list: list || {},
     onClick: onClick,
+    autoWidth: autoWidth ? `auto` : `100%`,
   }
 
   const [show, setShow] = useState(false)
@@ -125,8 +127,10 @@ export default function SelectDropdown({
             boxShadow="0px 0px 10px rgba(0, 0, 0, 0.25)"
             padding="5px 0"
             borderRadius="10px"
-            overflow="hidden"
+            overflow="hidden scroll"
             userSelect="none"
+            maxHeight="150px"
+            width={props.autoWidth}
             zIndex="999"
           >
             {props.variant === 'text'

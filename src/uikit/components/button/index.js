@@ -17,6 +17,12 @@ const VariantButton = {
     border: 0,
     cursor: 'pointer',
   },
+  btnPrimaryOrangeSoft: {
+    background: Theme.colors.orangeSoft,
+    color: Theme.colors.red,
+    border: 0,
+    cursor: 'pointer',
+  },
   btnPrimaryOutline: {
     background: 'transparent',
     color: Theme.colors.red,
@@ -44,9 +50,21 @@ const VariantButton = {
   btnSize: {
     large: {
       height: '50px',
+      fontSize: '14px',
+      fontWeight: 'bold',
+      borderRadius: '10px',
     },
     medium: {
       height: '41px',
+      fontSize: '11px',
+      fontWeight: 'bold',
+      borderRadius: '10px',
+    },
+    xSmall: {
+      height: '22px',
+      fontSize: '9px',
+      fontWeight: 'bold',
+      borderRadius: '5px',
     },
   },
 }
@@ -57,6 +75,8 @@ const HandlingVariantButton = (e) => {
       return VariantButton.btnSecondaryOutline
     case 'primary-orange':
       return VariantButton.btnPrimaryOrange
+    case 'primary-orangesoft':
+      return VariantButton.btnPrimaryOrangeSoft
     case 'primary-orange-outline':
       return VariantButton.btnPrimaryOrangeOutline
     case 'primary-outline':
@@ -72,6 +92,8 @@ const HandlingSizeButton = (e) => {
   switch (e) {
     case 'large':
       return VariantButton.btnSize.large
+    case 'x-small':
+      return VariantButton.btnSize.xSmall
     default:
       return VariantButton.btnSize.medium
   }
@@ -90,8 +112,8 @@ const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
   height: 100%;
-  border-radius: 10px;
   border: 0;
+  ${(props) => HandlingSizeButton(props.size)}
   ${(props) => (props.block ? `width: 100%;` : `padding: 0 15px;`)}
   ${(props) =>
     HandlingVariantButton(
@@ -99,7 +121,6 @@ const StyledButton = styled.button`
     )}
   outline: none;
   font-family: 'Poppins', sans-serif;
-  font-weight: bold;
   line-height: normal;
   letter-spacing: 1.33px;
   :active {
@@ -156,6 +177,7 @@ export const Button = ({
           variant={variant}
           onClick={onClick}
           disabled={disabled}
+          size={size}
         >
           {children}
         </StyledButton>

@@ -368,6 +368,158 @@
                 "phone": "082198321281"
             }
         }
+    ],
+    "store_address": [
+        {
+            "address_id": "add77001",
+            "name": "Ruko",
+            "address": "Nama Alamat",
+            "village": "Kelurahan",
+            "sub_district": "Kecamatan",
+            "city": "Kota",
+            "province": "Provinsi",
+            "postal_code": "Kode Pos",
+            "phone": "082198321281",
+            "main_address": true
+        },
+        {
+            "address_id": "add77002",
+            "name": "Apartemen",
+            "address": "Nama Alamat",
+            "village": "Kelurahan",
+            "sub_district": "Kecamatan",
+            "city": "Kota",
+            "province": "Provinsi",
+            "postal_code": "Kode Pos",
+            "phone": "085244321290",
+            "main_address": false
+        }
+    ],
+    "store_bank_list": [
+        {
+            "bank_id": "bank3101",
+            "bank_name": "Bank Central Asia (BCA)",
+            "bank_no_account": "9000018921029",
+            "bank_name_user": "Indah Purnama Bintang",
+            "main_bank": true
+        },
+        {
+            "bank_id": "bank3102",
+            "bank_name": "Bank Mandiri",
+            "bank_no_account": "903483201",
+            "bank_name_user": "Indah Purnama Bintang",
+            "main_bank": false
+        }
+    ],
+    "list_vendor_shipping": [
+        {
+            "id": "sp45",
+            "description": "Pembeli dapat ambil barang pesanannya langsung ke lokasi toko terdekat.",
+            "data": [
+                {
+                    "id_service": "4501",
+                    "name": "Ambil Sendiri"
+                }
+            ]
+        },
+        {
+            "id": "sp46",
+            "description": "",
+            "data": [
+                {
+                    "id_service": "4601",
+                    "name": "JNE REG"
+                },
+                {
+                    "id_service": "4602",
+                    "name": "JNE OKE"
+                },
+                {
+                    "id_service": "4603",
+                    "name": "JNE YES"
+                }
+            ]
+        },
+        {
+            "id": "sp47",
+            "description": "",
+            "data": [
+                {
+                    "id_service": "4701",
+                    "name": "Wahana Tarif Normal"
+                }
+            ]
+        },
+        {
+            "id": "sp48",
+            "description": "",
+            "data": [
+                {
+                    "id_service": "4801",
+                    "name": "Jenis Pengiriman"
+                },
+                {
+                    "id_service": "4802",
+                    "name": "Jenis Pengiriman"
+                }
+            ]
+        },
+        {
+            "id": "sp49",
+            "description": "",
+            "data": [
+                {
+                    "id_service": "4901",
+                    "name": "Jenis Pengiriman"
+                },
+                {
+                    "id_service": "4902",
+                    "name": "Jenis Pengiriman"
+                }
+            ]
+        },
+        {
+            "id": "sp50",
+            "description": "",
+            "data": [
+                {
+                    "id_service": "5001",
+                    "name": "Jenis Pengiriman"
+                },
+                {
+                    "id_service": "5002",
+                    "name": "Jenis Pengiriman"
+                }
+            ]
+        },
+        {
+            "id": "sp51",
+            "description": "",
+            "data": [
+                {
+                    "id_service": "5101",
+                    "name": "Jenis Pengiriman"
+                },
+                {
+                    "id_service": "5102",
+                    "name": "Jenis Pengiriman"
+                }
+            ]
+        },
+        {
+            "id": "sp52",
+            "description": "",
+            "data": [
+                {
+                    "id_service": "5201",
+                    "name": "Jenis Pengiriman"
+                },
+                {
+                    "id_service": "5202",
+                    "name": "Jenis Pengiriman"
+                }
+            ]
+        }
+
     ]
-    
 }

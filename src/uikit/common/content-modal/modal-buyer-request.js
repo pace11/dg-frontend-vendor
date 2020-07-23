@@ -79,6 +79,7 @@ export default function ModalBuyerRequest({ handleBack }) {
           value={note}
           onChange={(e) => HandleChange(e)}
           charLength={charLength}
+          showLimit
         />
       </Row>
       <WrapperButton>
