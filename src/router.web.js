@@ -14,7 +14,7 @@ import SettingStore from './pages/setting/store'
 import Statistic from './pages/statistic'
 import Review from './pages/reviews'
 import Customer from './pages/customer'
-import AdminSetting from './pages/admin/setting'
+import AdminSetting from './pages/setting/admin'
 import ReceiptPrint from './pages/print/receipt'
 import AddDistributor from './pages/distributor-seller/add'
 import StockProduct from './pages/distributor-seller/stock-product'
@@ -118,7 +118,7 @@ export default function RouterWeb() {
         component={Customer}
       />
       <ProtectedRoute
-        path="/admin/setting"
+        path="/setting/admin"
         exact={true}
         component={AdminSetting}
       />

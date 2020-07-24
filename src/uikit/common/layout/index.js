@@ -213,7 +213,7 @@ export default function Layout({ children }) {
             notification={0}
             data={[
               { text: 'Atur Toko', linkTo: '/setting/store' },
-              { text: 'Atur Admin', linkTo: '/admin/setting' },
+              { text: 'Atur Admin', linkTo: '/setting/admin' },
             ]}
           />
         </SidebarMenu>
