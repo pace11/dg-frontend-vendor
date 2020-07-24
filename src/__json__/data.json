@@ -521,5 +521,43 @@
             ]
         }
 
+    ],
+    "admin_list": [
+        {
+            "admin_id": "adm4301",
+            "admin_name": "Atep Kasep",
+            "active_until": "9 Mei 2020",
+            "admin_email": "atep@gmail.com",
+            "access": [
+                {
+                    "id": "601",
+                    "name": "Atur produk ditoko"
+                },
+                {
+                    "id": "602",
+                    "name": "Kelola chat pembeli"
+                },
+                {
+                    "id": "603",
+                    "name": "Atur transaksi penjualan"
+                }
+            ],
+            "last_active": "2 Mei 2020, 14:32",
+            "admin_status": 1
+        },
+        {
+            "admin_id": "adm4302",
+            "admin_name": "Andini Ismi",
+            "active_until": "9 Mei 2020",
+            "admin_email": "andin@gmail.com",
+            "access": [
+                {
+                    "id": "601",
+                    "name": "Atur produk ditoko"
+                }
+            ],
+            "last_active": "2 Mei 2020, 14:32",
+            "admin_status": 2
+        }
     ]
 }

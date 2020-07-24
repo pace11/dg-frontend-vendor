@@ -29,7 +29,7 @@ const Row = styled.div`
 
 const RowContent = styled.div`
   height: auto;
-  &:nth-of-type(even) {
+  &:nth-of-type(odd) {
     border-top: 1px solid ${Theme.colors.gray5};
   }
   ${(props) => props}
