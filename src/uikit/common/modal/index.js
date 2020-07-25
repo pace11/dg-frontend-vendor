@@ -11,6 +11,7 @@ import theme from '../../common/theme'
 export default function Modal({
   show,
   onClick,
+  iconTitle,
   title,
   children,
   width,
@@ -18,6 +19,7 @@ export default function Modal({
   const props = {
     show: show,
     onClick: onClick,
+    iconTitle: iconTitle,
     title: title,
     children: children,
     width: width || `494px`,
@@ -34,7 +36,10 @@ export default function Modal({
         ></div>
         <div className="container-modal">
           <div className="modal-header">
-            <p className="title">{props.title}</p>
+            <p className="title">
+              {props.iconTitle}
+              {props.title}
+            </p>
             <span onClick={(e) => props.onClick(e)}>&times;</span>
           </div>
           <div className="fdn-modal-content">{props.children}</div>
