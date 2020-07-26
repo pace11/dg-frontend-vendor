@@ -11,6 +11,12 @@ const VariantButton = {
     border: 0,
     cursor: 'pointer',
   },
+  btnSecondary: {
+    background: Theme.colors.gray2,
+    color: Theme.colors.white,
+    border: 0,
+    cursor: 'pointer',
+  },
   btnPrimaryOrange: {
     background: Theme.colors.orange,
     color: Theme.colors.white,
@@ -73,6 +79,8 @@ const HandlingVariantButton = (e) => {
   switch (e) {
     case 'secondary-outline':
       return VariantButton.btnSecondaryOutline
+    case 'secondary':
+      return VariantButton.btnSecondary
     case 'primary-orange':
       return VariantButton.btnPrimaryOrange
     case 'primary-orangesoft':
